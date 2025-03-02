@@ -28,3 +28,16 @@ int crea_sala(int capacidad) {
 	printf("Sala creada correctamente.\n");
 	return capacidad;
 }
+
+int elimina_sala() {
+	if (miSala == NULL) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	
+	free(miSala);
+	miSala = NULL;
+	printf("Sala eliminada correctamente.\n");
+	return 0;
+}
+
