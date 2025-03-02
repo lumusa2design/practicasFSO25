@@ -9,16 +9,18 @@ struct sala {
 	int asientos[];
 };
 
+int existe_sala();
+
 struct sala *miSala = NULL;
 
 int crea_sala(int capacidad) {
-	if (miSala != NULL) {
+	if (existe_sala()) {
 		printf("La sala ya está creada.\n");
 		return -1;
 	}
 	
 	miSala = malloc(sizeof(struct sala) + capacidad * sizeof(int));
-	if (miSala == NULL) {
+	if (!existe_sala()) {
 		printf("Error de memoria.\n");
 		return -1;
 	}
@@ -30,7 +32,7 @@ int crea_sala(int capacidad) {
 }
 
 int elimina_sala() {
-	if (miSala == NULL) {
+	if (!existe_sala()) {
 		printf("La sala no existe.\n");
 		return -1;
 	}
@@ -41,3 +43,6 @@ int elimina_sala() {
 	return 0;
 }
 
+int existe_sala() {
+	return miSala != NULL;
+}
