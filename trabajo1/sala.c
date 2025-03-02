@@ -10,6 +10,7 @@ struct sala {
 	int asientos[];
 };
 
+
 int existe_sala();
 
 struct sala *miSala = NULL;
@@ -24,6 +25,28 @@ int estado_asiento(int id_asiento) {
 		return -1;
 	}
 	return miSala->asientos[id_asiento];
+}
+
+int asientos_libres() {
+	if (!existe_sala()) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	
+	int count = 0;
+	for (int i = 0; i < capacidad_sala(); i++) {
+		if (estado_asiento(i) == ASIENTO_LIBRE) count++;
+	}
+	return count;
+}
+
+int asientos_ocupados () {
+	if (!existe_sala()) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	
+	return capacidad_sala() - asientos_libres();
 }
 
 int capacidad_sala() {
