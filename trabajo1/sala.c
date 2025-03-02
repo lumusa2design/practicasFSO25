@@ -14,6 +14,18 @@ int existe_sala();
 
 struct sala *miSala = NULL;
 
+int estado_asiento(int id_asiento) {
+	if (!existe_sala()) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	if (id_asiento > 1 - miSala->capacidad || id_asiento < 0) {
+		printf("El asiento no existe.\n");
+		return -1;
+	}
+	return miSala->asientos[id_asiento];
+}
+
 int capacidad_sala() {
 	if (!existe_sala()) {
 		printf("La sala no existe.\n");
