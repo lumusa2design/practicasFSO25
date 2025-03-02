@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+# define ASIENTO_LIBRE 0
 
 struct sala {
 	char nombre[10];
@@ -35,6 +36,9 @@ int crea_sala(int capacidad) {
 	
 	strcpy(miSala->nombre, "");
 	miSala->capacidad = capacidad;
+	for(int i = 0; i < capacidad; i++) {
+		miSala->asientos[i] = ASIENTO_LIBRE;
+	}
 	printf("Sala creada correctamente.\n");
 	return capacidad;
 }
@@ -54,3 +58,4 @@ int elimina_sala() {
 int existe_sala() {
 	return miSala != NULL;
 }
+
