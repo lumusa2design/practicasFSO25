@@ -19,8 +19,8 @@ int estado_asiento(int id_asiento) {
 		printf("La sala no existe.\n");
 		return -1;
 	}
-	if (id_asiento > 1 - miSala->capacidad || id_asiento < 0) {
-		printf("El asiento no existe.\n");
+	if (id_asiento > capacidad_sala() - 1 || id_asiento < 0) {
+		printf("El asiento %i no existe.\n", id_asiento);
 		return -1;
 	}
 	return miSala->asientos[id_asiento];
