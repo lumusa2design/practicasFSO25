@@ -13,6 +13,14 @@ int existe_sala();
 
 struct sala *miSala = NULL;
 
+int capacidad_sala() {
+	if (!existe_sala()) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	return miSala->capacidad;
+}
+
 int crea_sala(int capacidad) {
 	if (existe_sala()) {
 		printf("La sala ya está creada.\n");
