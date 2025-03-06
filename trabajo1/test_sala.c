@@ -48,12 +48,13 @@ void ejecuta_tests ()
 	// Añadir nuevos tests 
 }
 
-main()
-{
-	puts("Iniciando tests...");
-	
-	ejecuta_tests();
-	
-	puts("Batería de test completa.");
-}
+/* main()
+ *{
+ *	puts("Iniciando tests...");
+ *	
+ *	ejecuta_tests();
+ *	
+ *	puts("Batería de test completa.");
+ *}
+ */
 
