@@ -63,6 +63,11 @@ int crea_sala(int capacidad) {
 		return -1;
 	}
 	
+	if (capacidad <= 0) {
+		printf("La capacidad debe ser mayor que 0. Capacidad introducida: %i\n", capacidad);
+		return -1;
+	}
+	
 	miSala = malloc(sizeof(struct sala) + capacidad * sizeof(int));
 	if (!existe_sala()) {
 		printf("Error de memoria.\n");
