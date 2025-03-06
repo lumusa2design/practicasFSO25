@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "sala.h"
 
 # define ASIENTO_LIBRE 0
 
@@ -14,6 +15,28 @@ struct sala {
 int existe_sala();
 
 struct sala *miSala = NULL;
+
+int libera_asineto(int id_asiento)
+{
+	if(!existe_sala())
+	{
+		printf("La sala no existe\n");
+		return -1;
+	}
+	
+	if(id_asiento > capacidad_sala() -1 || id_asiento < 0 ) 
+	{
+		printf("el asiento %d no existe\n", id_asiento);
+		return -1;
+	}
+	if(estado_asiento(id_asiento) > 0) 
+	{
+		return estado_asiento(id_asiento);
+	} else 
+	{
+		return -1;
+	}	
+}
 
 int estado_asiento(int id_asiento) {
 	if (!existe_sala()) {
@@ -40,6 +63,15 @@ int asientos_libres() {
 	return count;
 }
 
+int capacidad_sala() {
+	if (!existe_sala()) {
+		printf("La sala no existe.\n");
+		return -1;
+	}
+	return miSala->capacidad;
+}
+
+
 int asientos_ocupados () {
 	if (!existe_sala()) {
 		printf("La sala no existe.\n");
@@ -49,13 +81,6 @@ int asientos_ocupados () {
 	return capacidad_sala() - asientos_libres();
 }
 
-int capacidad_sala() {
-	if (!existe_sala()) {
-		printf("La sala no existe.\n");
-		return -1;
-	}
-	return miSala->capacidad;
-}
 
 int crea_sala(int capacidad) {
 	if (existe_sala()) {
