@@ -16,7 +16,7 @@ int existe_sala();
 
 struct sala *miSala = NULL;
 
-int libera_asineto(int id_asiento)
+int libera_asiento(int id_asiento)
 {
 	if(!existe_sala())
 	{
@@ -38,6 +38,24 @@ int libera_asineto(int id_asiento)
 	}	
 }
 
+int reserva_asiento(int id_persona)
+{
+	if(!existe_sala()) 
+	{
+		printf("la sala no existe\n");
+		return -1;
+	}
+	for(int i = 0; i <capacidad_sala() -1; i++)
+	{
+		if(estado_asiento(i) != -1) 
+		{
+			miSala->asientos[i] = id_persona;
+		} else 
+		{
+			return -1;
+		}
+	}
+}
 int estado_asiento(int id_asiento) {
 	if (!existe_sala()) {
 		printf("La sala no existe.\n");
