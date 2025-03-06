@@ -56,7 +56,7 @@ void test_SalaCapacidadNegativa() {
 
 void test_SalaCapacidad0() {
 	INICIO_TEST("Sala con Capacidad = 0");
-	DebeSerCierto(crea_sala(CAPACIDAD*-1) == -1);
+	DebeSerCierto(crea_sala(0) == -1);
 	FIN_TEST("Sala con Capacidad = 0");
 }
 
