@@ -104,7 +104,7 @@ int crea_sala(int capacidad) {
 	if (existe_sala()) {
 		printf("La sala ya está creada.\n");
 		return -1;
-	}
+	}0
 	
 	if (capacidad <= 0) {
 		printf("La capacidad debe ser mayor que 0. Capacidad introducida: %i\n", capacidad);
