@@ -31,7 +31,7 @@ int libera_asineto(int id_asiento)
 	}
 	if(estado_asiento(id_asiento) > 0) 
 	{
-		return estado_asiento;
+		return estado_asiento(id_asiento);
 	} else 
 	{
 		return -1;
