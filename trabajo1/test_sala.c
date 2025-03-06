@@ -56,6 +56,20 @@ void test_CreaSalaSinEliminar() {
 	FIN_TEST("Crea Sala Sin Eliminar");
 }
 
+void test_CreaSalaCapacidadNegativa() {
+	INICIO_TEST("Crea Sala Capacidad Negativa");
+	DebeSerCierto(crea_sala(CAPACIDAD*-1) == -1);
+	elimina_sala();
+	FIN_TEST("Crea Sala");
+}
+
+void test_CreaSalaCapacidadCero() {
+	INICIO_TEST("Crea Sala Capacidad Cero");
+	DebeSerCierto(crea_sala(0) == -1);
+	elimina_sala();
+	FIN_TEST("Crea Sala");
+}
+
 void test_EliminaSalaInexistente() {
 	INICIO_TEST("Elimina Sala Inexistente");
 	DebeSerCierto(elimina_sala() == -1);
@@ -76,6 +90,8 @@ void ejecuta_tests() {
 	// Añadir nuevos tests 
 	test_CreaSala();
 	test_CreaSalaSinEliminar();
+	test_CreaSalaCapacidadNegativa();
+	test_CreaSalaCapacidadCero();
 	test_EliminaSalaInexistente();
 	test_EliminaSala();
 	printf("Betería de test completa.\n");
