@@ -41,11 +41,39 @@ void FIN_TEST (const char* titulo_test) {
 	FIN_TEST("Reserva básica");
 }*/
 
-void test_CreaSala() {
-	INICIO_TEST("Crea Sala");
+void test_SalaInexistente() {
+	INICIO_TEST("Sala Inexistente");
+	DebeSerCierto(capacidad_sala() == -1);
+	DebeSerCierto(elimina_sala() == -1);
+	FIN_TEST("Sala Inexistente");
+}
+
+void test_SalaCapacidadNegativa() {
+	INICIO_TEST("Sala con Capacidad Negativa");
+	DebeSerCierto(crea_sala(CAPACIDAD*-1) == -1);
+	FIN_TEST("Sala con Capacidad Negativa");
+}
+
+void test_SalaCapacidad0() {
+	INICIO_TEST("Sala con Capacidad = 0");
+	DebeSerCierto(crea_sala(CAPACIDAD*-1) == -1);
+	FIN_TEST("Sala con Capacidad = 0");
+}
+
+void test_SalaCapacidad1() {
+	INICIO_TEST("Sala con Capacidad = 1");
+	DebeSerCierto(crea_sala(1) == 1);
+	DebeSerCierto(capacidad_sala() == 1);
+	DebeSerCierto(elimina_sala() == 0);
+	FIN_TEST("Sala con Capacidad = 1");
+}
+
+void test_SalaCapacidadN() {
+	INICIO_TEST("Sala con Capacidad = N");
 	DebeSerCierto(crea_sala(CAPACIDAD) == CAPACIDAD);
-	elimina_sala();
-	FIN_TEST("Crea Sala");
+	DebeSerCierto(capacidad_sala() == CAPACIDAD);
+	DebeSerCierto(elimina_sala() == 0);
+	FIN_TEST("Sala con Capacidad = N");
 }
 
 void test_CreaSalaSinEliminar() {
@@ -56,44 +84,17 @@ void test_CreaSalaSinEliminar() {
 	FIN_TEST("Crea Sala Sin Eliminar");
 }
 
-void test_CreaSalaCapacidadNegativa() {
-	INICIO_TEST("Crea Sala Capacidad Negativa");
-	DebeSerCierto(crea_sala(CAPACIDAD*-1) == -1);
-	elimina_sala();
-	FIN_TEST("Crea Sala");
-}
-
-void test_CreaSalaCapacidadCero() {
-	INICIO_TEST("Crea Sala Capacidad Cero");
-	DebeSerCierto(crea_sala(0) == -1);
-	elimina_sala();
-	FIN_TEST("Crea Sala");
-}
-
-void test_EliminaSalaInexistente() {
-	INICIO_TEST("Elimina Sala Inexistente");
-	DebeSerCierto(elimina_sala() == -1);
-	FIN_TEST("Elimina Sala Sin Sala");
-}
-
-void test_EliminaSala() {
-	INICIO_TEST("Elimina Sala");
-	crea_sala(CAPACIDAD);
-	DebeSerCierto(elimina_sala() == 0);
-	FIN_TEST("Elimina Sala");
-}
-
 void ejecuta_tests() {
 	printf("Iniciando tests...\n");
 	
 	// test_ReservaBasica();
 	// Añadir nuevos tests 
-	test_CreaSala();
+	test_SalaInexistente();
+	test_SalaCapacidadNegativa();
+	test_SalaCapacidad0();
+	test_SalaCapacidad1();
+	test_SalaCapacidadN();
 	test_CreaSalaSinEliminar();
-	test_CreaSalaCapacidadNegativa();
-	test_CreaSalaCapacidadCero();
-	test_EliminaSalaInexistente();
-	test_EliminaSala();
 	printf("Betería de test completa.\n");
 }
 
