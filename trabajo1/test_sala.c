@@ -43,6 +43,9 @@ void FIN_TEST (const char* titulo_test) {
 
 void test_SalaInexistente() {
 	INICIO_TEST("Sala Inexistente");
+	DebeSerCierto(estado_asiento(0) == -1);
+	DebeSerCierto(asientos_libres() == -1);
+	DebeSerCierto(asientos_ocupados() == -1);
 	DebeSerCierto(capacidad_sala() == -1);
 	DebeSerCierto(elimina_sala() == -1);
 	FIN_TEST("Sala Inexistente");
