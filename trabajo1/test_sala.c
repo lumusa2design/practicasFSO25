@@ -5,26 +5,26 @@
 
 #include <assert.h>
 #include <stdio.h>
+#include "sala.h"
 
 #define DebeSerCierto(x)	assert(x)
 #define DebeSerFalso(x)		assert(!(x))
 
-void INICIO_TEST (const char* titulo_test)
-{
-  printf("********** batería de pruebas para %s: ", titulo_test); 
+#define CAPACIDAD 20
+
+void INICIO_TEST (const char* titulo_test) {
+  printf("********** batería de pruebas para %s:\n", titulo_test); 
  	// fflush fuerza que se imprima el mensaje anterior
 	// sin necesidad de utilizar un salto de línea
 	fflush(stdout);
 }
 
-void FIN_TEST (const char* titulo_test)
-{
-  printf ("********** hecho\n");
+void FIN_TEST (const char* titulo_test) {
+  printf("********** hecho\n");
 }
 
 
-void test_ReservaBasica()
-{
+/*void test_ReservaBasica() {
 	int mi_asiento;
 	#define CAPACIDAD 500
 	#define ID_1 1500
@@ -39,17 +39,35 @@ void test_ReservaBasica()
 	DebeSerCierto((asientos_libres()+asientos_ocupados())==CAPACIDAD);
 	elimina_sala();
 	FIN_TEST("Reserva básica");
+}*/
+
+void test_CreaSala() {
+	INICIO_TEST("Crea Sala");
+	DebeSerCierto(crea_sala(CAPACIDAD) == CAPACIDAD);
+	elimina_sala();
+	FIN_TEST("Crea Sala");
 }
 
+void test_CreaSalaSinEliminar() {
+	INICIO_TEST("Crea Sala Sin Eliminar");
+	crea_sala(CAPACIDAD);
+	DebeSerCierto(crea_sala(CAPACIDAD) == -1);
+	elimina_sala();
+	FIN_TEST("Crea Sala Sin Eliminar");
+}
 
-void ejecuta_tests ()
-{
-	test_ReservaBasica();
+void ejecuta_tests() {
+	printf("Iniciando tests...\n");
+	
+	// test_ReservaBasica();
 	// Añadir nuevos tests 
+	test_CreaSala();
+	test_CreaSalaSinEliminar();
+	
+	printf("Betería de test completa.\n");
 }
 
-/* main()
- *{
+/* main() {
  *	puts("Iniciando tests...");
  *	
  *	ejecuta_tests();
