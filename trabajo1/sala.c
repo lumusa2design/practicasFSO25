@@ -44,6 +44,11 @@ int reserva_asiento(int id_persona)
 	{
 		printf("la sala no existe\n");
 		return -1;
+	} 
+	if(id_persona < 0) 
+	{
+		printf("El id de la persona tiene que ser positivo\n");
+		return -1;
 	}
 	for(int i = 0; i <capacidad_sala() -1; i++)
 	{
@@ -104,14 +109,19 @@ int crea_sala(int capacidad) {
 	if (existe_sala()) {
 		printf("La sala ya está creada.\n");
 		return -1;
-	}0
+	}
 	
 	if (capacidad <= 0) {
 		printf("La capacidad debe ser mayor que 0. Capacidad introducida: %i\n", capacidad);
 		return -1;
 	}
 	
-	miSala = malloc(sizeof(struct sala) + capacidad * sizeof(int));
+	miSala = (int *)malloc(sizeof(struct sala) + capacidad * sizeof(int));
+	if(miSala == -1) 
+	{
+		printf("Error al crear sala\n");
+		return -1;
+	}
 	if (!existe_sala()) {
 		printf("Error de memoria.\n");
 		return -1;
