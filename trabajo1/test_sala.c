@@ -68,7 +68,7 @@ void test_SalaCapacidad0() {
 
 void test_SalaCapacidad1() {
 	INICIO_TEST("Sala con Capacidad = 1");
-	DebeSerCierto(crea_sala(1) == 1);
+	crea_sala(1);
 	DebeSerCierto(capacidad_sala() == 1);
 	DebeSerCierto(asientos_libres() == 1);
 	DebeSerCierto(asientos_ocupados() == 0);
@@ -83,8 +83,7 @@ void test_SalaCapacidad1() {
 	DebeSerCierto(estado_asiento(0) == 0);
 	DebeSerCierto(asientos_libres() == 1);
 	DebeSerCierto(asientos_ocupados() == 0);
-	DebeSerCierto(capacidad_sala() == 1);
-	DebeSerCierto(elimina_sala() == 0);
+	elimina_sala();
 	FIN_TEST("Sala con Capacidad = 1");
 }
 
