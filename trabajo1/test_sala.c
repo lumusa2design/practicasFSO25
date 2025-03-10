@@ -43,6 +43,9 @@ void FIN_TEST (const char* titulo_test) {
 
 void test_SalaInexistente() {
 	INICIO_TEST("Sala Inexistente");
+	DebeSerCierto(reserva_asiento(0) == -1);
+	DebeSerCierto(libera_asiento(0) == -1);
+	DebeSerCierto(capacidad_sala() == -1);
 	DebeSerCierto(estado_asiento(0) == -1);
 	DebeSerCierto(asientos_libres() == -1);
 	DebeSerCierto(asientos_ocupados() == -1);
@@ -66,6 +69,20 @@ void test_SalaCapacidad0() {
 void test_SalaCapacidad1() {
 	INICIO_TEST("Sala con Capacidad = 1");
 	DebeSerCierto(crea_sala(1) == 1);
+	DebeSerCierto(capacidad_sala() == 1);
+	DebeSerCierto(asientos_libres() == 1);
+	DebeSerCierto(asientos_ocupados() == 0);
+	DebeSerCierto(reserva_asiento(1) == 0);
+	DebeSerCierto(reserva_asiento(2) == -1);
+	DebeSerCierto(asientos_libres() == 0);
+	DebeSerCierto(asientos_ocupados() == 1);
+	DebeSerCierto(estado_asiento(0) == 1);
+	DebeSerCierto(estado_asiento(1) == -1);
+	DebeSerCierto(libera_asiento(0) == 1);
+	DebeSerCierto(libera_asiento(1) == -1);
+	DebeSerCierto(estado_asiento(0) == 0);
+	DebeSerCierto(asientos_libres() == 1);
+	DebeSerCierto(asientos_ocupados() == 0);
 	DebeSerCierto(capacidad_sala() == 1);
 	DebeSerCierto(elimina_sala() == 0);
 	FIN_TEST("Sala con Capacidad = 1");
