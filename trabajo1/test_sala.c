@@ -98,7 +98,7 @@ void ejecuta_tests() {
 	test_SalaCapacidad1();
 	test_SalaCapacidadN();
 	test_CreaSalaSinEliminar();
-	printf("Betería de test completa.\n");
+	printf("Batería de test completa.\n");
 }
 
 /* main() {
