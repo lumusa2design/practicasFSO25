@@ -24,15 +24,16 @@ int libera_asiento(int id_asiento)
 		return -1;
 	}
 	
-	if(id_asiento > capacidad_sala() || id_asiento < 0 ) 
+	if(id_asiento >= capacidad_sala() || id_asiento < 0 ) 
 	{
 		printf("el asiento %d no existe\n", id_asiento);
 		return -1;
 	}
 	if(estado_asiento(id_asiento) > 0) 
 	{
+		int estado_old = estado_asiento(id_asiento);
 		miSala->asientos[id_asiento] = ASIENTO_LIBRE;
-		return estado_asiento(id_asiento);
+		return estado_old;
 	} else 
 	{
 		return -1;
@@ -53,9 +54,10 @@ int reserva_asiento(int id_persona)
 	}
 	for(int i = 0; i <capacidad_sala(); i++)
 	{
-		if(estado_asiento(i) != -1 && estado_asiento == ASIENTO_LIBRE) 
+		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
 		{
 			miSala->asientos[i] = id_persona;
+			return i;
 		} else 
 		{
 			return -1;
