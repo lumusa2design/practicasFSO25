@@ -58,11 +58,9 @@ int reserva_asiento(int id_persona)
 		{
 			miSala->asientos[i] = id_persona;
 			return i;
-		} else 
-		{
-			return -1;
 		}
 	}
+	return -1;
 }
 int estado_asiento(int id_asiento) {
 	if (!existe_sala()) {
