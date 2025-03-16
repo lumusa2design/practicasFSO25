@@ -88,17 +88,30 @@ void test_SalaCapacidad1() {
 }
 
 void test_SalaCapacidadN() {
-	// TODO finish test cases.
 	INICIO_TEST("Sala con Capacidad = N");
 	DebeSerCierto(crea_sala(CAPACIDAD) == CAPACIDAD);
+	int ocupados = 0;
 	DebeSerCierto(asientos_libres() == CAPACIDAD);
-	DebeSerCierto(asientos_ocupados() == 0);
+	DebeSerCierto(asientos_ocupados() == ocupados);
 	for (int i = 0; i < CAPACIDAD; i++) {
 		DebeSerCierto(reserva_asiento(1) == i);
+		ocupados++;
+		DebeSerCierto(asientos_libres() == CAPACIDAD-ocupados);
+		DebeSerCierto(asientos_ocupados() == ocupados);
 	}
 	DebeSerCierto(reserva_asiento(CAPACIDAD) == -1);
+	DebeSerCierto(asientos_ocupados() == CAPACIDAD);
 	
+	for (int i = 0; i < CAPACIDAD; i++) {
+		DebeSerCierto(libera_asiento(i) == 1);
+		ocupados--;
+		DebeSerCierto(asientos_libres() == CAPACIDAD-ocupados);
+		DebeSerCierto(asientos_ocupados() == ocupados);
+		DebeSerCierto(estado_asiento(i) == 0);
+	}
+	DebeSerCierto(asientos_ocupados() == 0);
 	DebeSerCierto(capacidad_sala() == CAPACIDAD);
+	
 	DebeSerCierto(elimina_sala() == 0);
 	FIN_TEST("Sala con Capacidad = N");
 }
