@@ -138,12 +138,11 @@ void ejecuta_tests() {
 	printf("Batería de test completa.\n");
 }
 
-/* main() {
- *	puts("Iniciando tests...");
- *	
- *	ejecuta_tests();
- *	
- *	puts("Batería de test completa.");
- *}
- */
+main() {
+	puts("Iniciando tests...");
+	
+	ejecuta_tests();
+	
+	puts("Batería de test completa.");
+}
 
