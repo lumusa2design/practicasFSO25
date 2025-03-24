@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "sala.h"
-#include "test_sala.h"
+#include "sucursal.h"
 
 int main(int argc, char argv[]) {
 	char ciudad[20];
