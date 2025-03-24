@@ -15,7 +15,7 @@ void crea_sucursal(const char * ciudad, int capacidad)
 		case -1:
 			perror("fork");
 		case 0:
-			crea_sala(capacidad);
+			exec(char* args[] = {"ls", "-l", "NULL"};);
 		default:
 			
 	}	
