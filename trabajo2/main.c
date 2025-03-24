@@ -4,7 +4,7 @@
 
 int main(int argc, char argv[]) {
 	char ciudad[20];
-	int capacidad;
+	char capacidad[3]; // Max capacidad = 999
 	while (true) {
 		printf("Ciudad:");
 		scanf ("%S", &ciudad);
