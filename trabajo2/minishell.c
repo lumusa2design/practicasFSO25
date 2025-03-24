@@ -14,6 +14,7 @@ int main(int argc, char * argv[]) {
 	while (1) {
 		char command[20];
 		scanf("%s", &command);
+		// TODO: Implementar todos los comandos.
 		if (!strcmp(command, "salir")) {
 			break;
 		} else if (!strcmp(command, "ayuda")) {
