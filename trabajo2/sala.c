@@ -6,7 +6,7 @@
 # define ASIENTO_LIBRE 0
 
 struct sala {
-	char nombre[10];
+	char ciudad[20];
 	int capacidad;
 	int libres;
 	int asientos[];
@@ -128,7 +128,7 @@ int crea_sala(int capacidad) {
 		return -1;
 	}
 	
-	strcpy(miSala->nombre, "");
+	strcpy(miSala->ciudad, "");
 	miSala->capacidad = capacidad;
 	miSala->libres = capacidad;
 	for(int i = 0; i < capacidad; i++) {
