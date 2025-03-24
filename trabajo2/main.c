@@ -10,7 +10,7 @@ int main(int argc, char argv[]) {
 		scanf ("%S", &ciudad);
 		if (!strcmp(ciudad, "salir")) break;
 		printf("Capacidad:");
-		scanf ("%i", &capacidad);
+		scanf ("%S", &capacidad);
 		
 		crea_sucursal(ciudad, capacidad);
 	}
