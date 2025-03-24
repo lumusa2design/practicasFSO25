@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sala.c>
 
 
-void crea_sucursal(const char * ciudad, int capacidad)
+
+void crea_sucursal(const char * ciudad,const char * capacidad)
 {
 	pid_t pid;
 	pid = fork();
@@ -15,9 +15,19 @@ void crea_sucursal(const char * ciudad, int capacidad)
 		case -1:
 			perror("fork");
 		case 0:
-			exec(char* args[] = {"xterm",  "./trabajo","NULL"});
+			char* args[] = {"xterm","NULL"};
+			printf("Soy el hijo\n");
+			execlp("gnome-terminal","gnome-terminal",NULL);
 		default:
-			wait
+			printf("Soy el padre\n");
 			
-	}	
+	}
+	
+	
+}
+
+int main()
+{
+	crea_sucursal("hola", "5");
+	return 0;
 }

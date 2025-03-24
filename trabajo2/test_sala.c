@@ -5,6 +5,7 @@
 
 #include <assert.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "sala.h"
 
 #define DebeSerCierto(x)	assert(x)
@@ -144,5 +145,6 @@ main() {
 	ejecuta_tests();
 	
 	puts("Batería de test completa.");
+	sleep(100);
 }
 
