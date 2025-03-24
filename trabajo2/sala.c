@@ -106,7 +106,7 @@ int asientos_ocupados () {
 }
 
 
-int crea_sala(int capacidad) {
+int crea_sala(char nombre[20], int capacidad) {
 	if (existe_sala()) {
 		fprintf(stderr, "La sala ya está creada.\n");
 		return -1;
@@ -128,7 +128,7 @@ int crea_sala(int capacidad) {
 		return -1;
 	}
 	
-	strcpy(miSala->ciudad, "");
+	strcpy(miSala->ciudad, nombre);
 	miSala->capacidad = capacidad;
 	miSala->libres = capacidad;
 	for(int i = 0; i < capacidad; i++) {
