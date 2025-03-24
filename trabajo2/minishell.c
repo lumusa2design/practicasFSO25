@@ -37,6 +37,4 @@ void print_help() {
 	printf("estado_sala - Muestra el estado de la sala.\n");
 	printf("cerrar_sala - Cierra la sala.\n");
 	printf("ayuda - Muestra la lista de comandos.\n");
-	
-	// TODO: Terminar lista de comandos
 }
