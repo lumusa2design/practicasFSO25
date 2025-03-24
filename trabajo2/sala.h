@@ -7,7 +7,7 @@ int estado_asiento(int id_asiento);
 int asientos_libres();
 int asientos_ocupados();
 int capacidad_sala();
-int crea_sala(int capacidad);
+int crea_sala(char nombre[20], int capacidad);
 int elimina_sala();
 
 #endif /* SALA_H_ */
