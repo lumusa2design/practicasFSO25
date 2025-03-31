@@ -21,6 +21,12 @@ int main(int argc, char * argv[]) {
 			break;
 		} else if (!strcmp(command, "ayuda")) {
 			print_help();
+		} else if(!strcmp(command, "reserva"))
+		{
+			int id;
+			printf("Introduzca el id de la persona: ");
+			scanf("%d", &id);
+			reserva_asiento(id);
 		} else {
 			fprintf(stderr, "Comando desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n");
 		}
