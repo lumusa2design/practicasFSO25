@@ -19,6 +19,12 @@ int main(int argc, char * argv[]) {
 		} else if (!strcmp(command, "ayuda")) {
 			printf("Lista de comandos:\n");
 			printf("(por implementar)\n"); // TODO: Mostrar lista de comandos
+		} else if(!strcmp(command, "reserva"))
+		{
+			int id;
+			printf("Introduzca el id de la persona: ");
+			scanf("%d", &id);
+			reserva_asiento(id);
 		} else {
 			fprintf(stderr, "Comando desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n");
 		}
