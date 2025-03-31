@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 void crea_sucursal(const char *ciudad, const char *capacidad)
 {
@@ -15,13 +16,17 @@ void crea_sucursal(const char *ciudad, const char *capacidad)
 
         case 0:
             printf("Soy el hijo\n");
-            execlp("gnome-terminal", "gnome-terminal", "--", "./minishell", ciudad, capacidad, (char *)NULL);
+execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
+
             perror("execlp");
             exit(EXIT_FAILURE);
 
         default:
-            printf("Soy el padre\n");
-            break;
+        	int status;
+            	while (wait(&status) > 0){
+            	printf("Soy el padre\n");
+            	}
+            	break;
     }
 }
 
