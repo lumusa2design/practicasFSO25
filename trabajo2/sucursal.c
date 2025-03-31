@@ -25,9 +25,13 @@ void crea_sucursal(const char *ciudad, const char *capacidad)
     }
 }
 
-int main()
+int main(int argc, char * argv[])
 {
-    crea_sucursal("hola", "5");
+	if(argc != 3) {
+		fprintf(stderr, "Número incorrecto de parámetros.\nEsperado: 2\nRecibido: %i\n", argc-1);
+		exit(-1);
+	}
+    crea_sucursal(argv[1], argv[2]);
     return 0;
 }
 
