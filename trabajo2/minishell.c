@@ -23,8 +23,6 @@ int main(int argc, char * argv[]) {
 		} else if (!strcmp(command, "ayuda")) {
 			print_help();
 		} else if(!strcmp(command, "reserva ")) {
-			int id = 0;
-			reserva_asiento(id);
 		} else if (!strcmp(command, "libera")) {
 		} else if (!strcmp(command, "estado_asiento")) {
 		} else if (!strcmp(command, "estado_sala")) {
