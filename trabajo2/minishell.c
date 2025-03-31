@@ -16,17 +16,18 @@ int main(int argc, char * argv[]) {
 	while (1) {
 		char command[20];
 		scanf("%s", &command);
+			
 		// TODO: Implementar todos los comandos.
 		if (!strcmp(command, "cerrar_sala")) {
 			break;
 		} else if (!strcmp(command, "ayuda")) {
 			print_help();
-		} else if(!strcmp(command, "reserva"))
-		{
-			int id;
-			printf("Introduzca el id de la persona: ");
-			scanf("%d", &id);
+		} else if(!strcmp(command, "reserva ")) {
+			int id = 0;
 			reserva_asiento(id);
+		} else if (!strcmp(command, "libera")) {
+		} else if (!strcmp(command, "estado_asiento")) {
+		} else if (!strcmp(command, "estado_sala")) {
 		} else {
 			fprintf(stderr, "Comando desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n");
 		}
