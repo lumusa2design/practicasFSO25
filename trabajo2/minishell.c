@@ -18,13 +18,12 @@ int main(int argc, char * argv[]) {
 	
 	while (1) {
 		char command[20];
-		// scanf(": %s", &command);
+
 		printf(": ");
 		fgets(command, sizeof(command), stdin);
 		command[strcspn(command, "\n")] = 0;
 		char *token = strtok(command, " ");
 		
-		// TODO: Implementar todos los comandos.
 		if (!strcmp(command, "cerrar_sala")) {
 			break;
 			
@@ -45,9 +44,16 @@ int main(int argc, char * argv[]) {
 				fprintf(stderr, "Uso: libera X");
 				continue;
 			}
-			libera_asiento((atoi(token)));
+			libera_asiento(atoi(token));
 			
 		} else if (!strcmp(token, "estado_asiento")) {
+			token = strtok(NULL, " ");
+			if (token == NULL) {
+				fprintf(stderr, "Uso: estado_asiento X");
+				continue;
+			}
+			int id = atoi(token);
+			printf("Asiento %i: %i\n", id, estado_asiento(id));
 			
 		} else if (!strcmp(command, "estado_sala")) {
 			print_estado_sala();
