@@ -18,7 +18,8 @@ int main(int argc, char * argv[]) {
 	
 	while (1) {
 		char command[20];
-		// scanf("%s", &command);
+		// scanf(": %s", &command);
+		printf(": ");
 		fgets(command, sizeof(command), stdin);
 		command[strcspn(command, "\n")] = 0;
 		char *token = strtok(command, " ");
@@ -39,9 +40,18 @@ int main(int argc, char * argv[]) {
 			reserva_asiento(atoi(token));
 			
 		} else if (!strcmp(token, "libera")) {
+			token = strtok(NULL, " ");
+			if (token == NULL) {
+				fprintf(stderr, "Uso: libera X");
+				continue;
+			}
+			libera_asiento((atoi(token)));
+			
 		} else if (!strcmp(token, "estado_asiento")) {
+			
 		} else if (!strcmp(command, "estado_sala")) {
 			print_estado_sala();
+			
 		} else {
 			fprintf(stderr, "Comando '%s' desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n", token);
 		}
@@ -59,6 +69,7 @@ void print_estado_sala() {
 	for (int i=0; i < capacidad_sala(); i++) {
 		printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
 	}
+	printf("\n");
 }
 
 
@@ -76,5 +87,5 @@ void print_help() {
 	printf("estado_asiento X - Muestra el estado del asiento X.\n");
 	printf("estado_sala - Muestra el estado de la sala.\n");
 	printf("cerrar_sala - Cierra la sala.\n");
-	printf("ayuda - Muestra la lista de comandos.\n");
+	printf("ayuda - Muestra la lista de comandos.\n\n");
 }
