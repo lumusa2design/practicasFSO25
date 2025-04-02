@@ -13,6 +13,8 @@ struct sala {
 
 
 int existe_sala();
+int capacidad_sala();
+int estado_asiento(int id_asiento);
 
 struct sala *miSala = NULL;
 
