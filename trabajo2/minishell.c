@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "sala.c"
+#include "sala.h"
 
 void print_help();
+void print_estado_sala();
+int digitos_asiento();
+
 
 int main(int argc, char * argv[]) {
 	if(argc != 3) {
@@ -30,6 +33,7 @@ int main(int argc, char * argv[]) {
 		} else if (!strcmp(token, "estado_asiento")) {
 		} else if (token == NULL) {
 		} else if (!strcmp(command, "estado_sala")) {
+			print_estado_sala();
 		} else {
 			fprintf(stderr, "Comando '%s' desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n", token);
 		}
@@ -38,7 +42,24 @@ int main(int argc, char * argv[]) {
 	exit(0);
 }
 
-int strsplit(char* str, char sep, char* dst[]) { }
+
+void print_estado_sala() {
+	printf("Sala: %s\n", nombre_sala());
+	printf("Capacidad: %i\n", capacidad_sala());
+	printf("Asientos libres: %i\n", asientos_libres());
+	printf("Asientos ocupados: %i\n", asientos_ocupados());
+	for (int i=0; i < capacidad_sala(); i++) {
+		printf("[%*i] %i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "  ");
+	}
+}
+
+
+int digitos_asiento() {
+	int digitos = 0;
+	for (int capacidad = capacidad_sala(); capacidad > 0; capacidad /=10) digitos++;
+	return digitos;
+}
+
 
 void print_help() {
 	printf("Lista de comandos:\n");
