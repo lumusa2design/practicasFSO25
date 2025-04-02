@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "sala.h"
 
 # define ASIENTO_LIBRE 0
 
@@ -154,3 +153,7 @@ int existe_sala() {
 	return miSala != NULL;
 }
 
+char * nombre_sala() {
+	if (!existe_sala()) return NULL;
+	return miSala->ciudad;
+}
