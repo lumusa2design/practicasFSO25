@@ -26,12 +26,20 @@ int main(int argc, char * argv[]) {
 		// TODO: Implementar todos los comandos.
 		if (!strcmp(command, "cerrar_sala")) {
 			break;
+			
 		} else if (!strcmp(command, "ayuda")) {
 			print_help();
-		} else if(!strcmp(token, "reserva ")) {
+			
+		} else if(!strcmp(token, "reserva")) {
+			token = strtok(NULL, " ");
+			if (token == NULL) {
+				fprintf(stderr, "Uso: reserva X");
+				continue;
+			}
+			reserva_asiento(atoi(token));
+			
 		} else if (!strcmp(token, "libera")) {
 		} else if (!strcmp(token, "estado_asiento")) {
-		} else if (token == NULL) {
 		} else if (!strcmp(command, "estado_sala")) {
 			print_estado_sala();
 		} else {
@@ -49,7 +57,7 @@ void print_estado_sala() {
 	printf("Asientos libres: %i\n", asientos_libres());
 	printf("Asientos ocupados: %i\n", asientos_ocupados());
 	for (int i=0; i < capacidad_sala(); i++) {
-		printf("[%*i] %i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "  ");
+		printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
 	}
 }
 
