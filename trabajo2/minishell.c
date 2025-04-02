@@ -22,8 +22,11 @@ int main(int argc, char * argv[]) {
 		char command[20];
 
 		printf(": ");
+		
 		fgets(command, sizeof(command), stdin);
 		command[strcspn(command, "\n")] = 0;
+		if (!strcmp(command, "")) continue;
+		
 		char *token = strtok(command, " ");
 		
 		if (!strcmp(command, "cerrar_sala")) {
