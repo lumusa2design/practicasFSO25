@@ -93,13 +93,13 @@ int digitos_asiento() {
 
 void print_help() {
 	printf("Lista de comandos:\n");
-	printf("reserva X - Realiza una reserva para la persona con id X.\n");
-	printf("libera X - Libera el asiento de la persona X.\n");
-	printf("estado_asiento X - Muestra el estado del asiento X.\n");
-	printf("estado_sala - Muestra el estado de la sala.\n");
-	printf("cerrar_sala - Cierra la sala.\n");
-	printf("clear - vacía la pantalla.\n");
-	printf("ayuda - Muestra la lista de comandos.\n\n");
+	printf("%-16s - Realiza una reserva para la persona con id X.\n", "reserva X");
+	printf("%-16s - Libera el asiento de la persona X.\n", "libera X");
+	printf("%-16s - Muestra el estado del asiento X.\n", "estado_asiento X");
+	printf("%-16s - Muestra el estado de la sala.\n", "estado_sala");
+	printf("%-16s - Cierra la sala.\n", "cerrar_sala");
+	printf("%-16s - Vacía la pantalla.\n", "clear");
+	printf("%-16s - Muestra la lista de comandos.\n\n", "ayuda");
 }
 
 
