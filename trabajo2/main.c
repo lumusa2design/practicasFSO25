@@ -7,10 +7,10 @@ int main(int argc, char argv[]) {
 	char capacidad[3]; // Max capacidad = 999
 	while (true) {
 		printf("Ciudad:");
-		scanf ("%S", &ciudad);
+		scanf ("%s", &ciudad);
 		if (!strcmp(ciudad, "salir")) break;
 		printf("Capacidad:");
-		scanf ("%S", &capacidad);
+		scanf ("%s", &capacidad);
 		
 		crea_sucursal(ciudad, capacidad);
 	}
