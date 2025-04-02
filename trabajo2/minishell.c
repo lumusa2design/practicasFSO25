@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
 #include "sala.h"
 
 void print_help();
 void print_estado_sala();
 int digitos_asiento();
-
+void clear_command();
 
 int main(int argc, char * argv[]) {
 	if(argc != 3) {
@@ -58,6 +60,9 @@ int main(int argc, char * argv[]) {
 		} else if (!strcmp(command, "estado_sala")) {
 			print_estado_sala();
 			
+		} else if (!strcmp(command, "clear")) {
+			clear_command();
+			
 		} else {
 			fprintf(stderr, "Comando '%s' desconocido.\nEscribe \"ayuda\" para ver la lista de comandos.\n", token);
 		}
@@ -93,5 +98,26 @@ void print_help() {
 	printf("estado_asiento X - Muestra el estado del asiento X.\n");
 	printf("estado_sala - Muestra el estado de la sala.\n");
 	printf("cerrar_sala - Cierra la sala.\n");
+	printf("clear - vacía la pantalla.\n");
 	printf("ayuda - Muestra la lista de comandos.\n\n");
+}
+
+
+void clear_command() {
+	pid_t pid = fork();
+	switch(pid) {
+		case -1:
+			// Error
+			fprintf(stderr, "Error en el fork.\n");
+			break;
+		case 0:
+			// Hijo
+			execlp("clear", "clear", NULL);
+			fprintf(stderr, "No se pudo ejecutar el comando clear.\n");
+			break;
+		default:
+			int status;
+			waitpid(pid, &status, 0);
+			break;
+	}
 }
