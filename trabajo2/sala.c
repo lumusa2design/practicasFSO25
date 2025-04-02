@@ -28,10 +28,10 @@ int libera_asiento(int id_asiento)
 	
 	if(id_asiento >= capacidad_sala() || id_asiento < 0 ) 
 	{
-		fprintf(stderr,"el asiento %d no existe\n", id_asiento);
+		fprintf(stderr,"El asiento %d no existe\n", id_asiento);
 		return -1;
 	}
-	if(estado_asiento(id_asiento) > 0) 
+	if(estado_asiento(id_asiento) != ASIENTO_LIBRE) 
 	{
 		int estado_old = estado_asiento(id_asiento);
 		miSala->libres ++;
@@ -39,9 +39,11 @@ int libera_asiento(int id_asiento)
 		return estado_old;
 	} else 
 	{
+		fprintf(stderr, "El asiento ya estaba vacío.\n");
 		return -1;
 	}	
 }
+
 
 int reserva_asiento(int id_persona)
 {
@@ -64,8 +66,11 @@ int reserva_asiento(int id_persona)
 			return i;
 		}
 	}
+	fprintf(stderr, "La sala está llena.\n");
 	return -1;
 }
+
+
 int estado_asiento(int id_asiento) {
 	if (!existe_sala()) {
 		fprintf(stderr,"La sala no existe.\n");
@@ -78,6 +83,7 @@ int estado_asiento(int id_asiento) {
 	return miSala->asientos[id_asiento];
 }
 
+
 int asientos_libres() {
 	if (!existe_sala()) {
 		fprintf(stderr, "La sala no existe.\n");
@@ -87,6 +93,7 @@ int asientos_libres() {
 
 	return miSala->libres;
 }
+
 
 int capacidad_sala() {
 	if (!existe_sala()) {
@@ -139,6 +146,7 @@ int crea_sala(char nombre[20], int capacidad) {
 	return capacidad;
 }
 
+
 int elimina_sala() {
 	if (!existe_sala()) {
 		fprintf(stderr,"La sala no existe.\n");
@@ -151,9 +159,11 @@ int elimina_sala() {
 	return 0;
 }
 
+
 int existe_sala() {
 	return miSala != NULL;
 }
+
 
 char * nombre_sala() {
 	if (!existe_sala()) return NULL;
