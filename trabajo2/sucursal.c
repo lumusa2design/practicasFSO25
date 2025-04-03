@@ -16,14 +16,14 @@ void crea_sucursal(const char *ciudad, const char *capacidad)
 
         case 0:
             // printf("Soy el hijo\n");
-            execlp("gnome-terminal", "gnome-terminal", "--", "./minishell", ciudad, capacidad, (char *)NULL);
+            execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
             perror("execlp");
             exit(EXIT_FAILURE);
 
         default:
             // printf("Soy el padre\n");
             int status;
-            waitpid(pid, &status, 0); // FIXME: No espera.
+            waitpid(pid, &status, 0); // FIXME: Detiene la ejecución.
             printf("La sala \"%s\" ha cerrado.\n", ciudad);
             break;
     }
