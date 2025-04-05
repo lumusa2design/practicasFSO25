@@ -55,10 +55,7 @@ void crea_sucursal(const char *ciudad, const char *capacidad) {
             exit(EXIT_FAILURE);
 
         default:
-            // printf("Soy el padre\n");
             int status;
-            // waitpid(pid, &status, 0);
-            // printf("La sala \"%s\" ha cerrado.\n", ciudad);
             if (num_salas < MAX_SALAS) {
                 salas[num_salas].pid = pid;
                 strncpy(salas[num_salas].nombre, ciudad, sizeof(salas[num_salas].nombre));
