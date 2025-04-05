@@ -15,13 +15,13 @@ int main(int argc, char argv[]) {
 		char capacidad[3] = ""; // Max capacidad = 999
 		
 		while(!strcmp(ciudad, "")) {
-			printf("Ciudad: ");
+			printf("\nCiudad: ");
 			fgets (ciudad, sizeof(ciudad), stdin);
 			ciudad[strcspn(ciudad, "\n")] = 0;
 		}
 		if (!strcmp(ciudad, "salir")) break;
 		while(!strcmp(capacidad, "")) {
-			printf("Capacidad: ");
+			printf("\nCapacidad: ");
 			fgets (capacidad, sizeof(capacidad), stdin);
 			capacidad[strcspn(capacidad, "\n")] = 0;
 		}
