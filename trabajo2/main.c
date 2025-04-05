@@ -6,9 +6,14 @@
 int main(int argc, char argv[]) {
 	char ciudad[20] = "";
 	char capacidad[3] = ""; // Max capacidad = 999
+	
+	sigset_t set;
+	signal (SIGCHLD, manejador_sala_terminada);
+	sigemptyset(&set);
+	sigaddset(&set, SIGCHLD);
+	
 	while (1) {
-		signal (SIGCHLD, manejador_sala_terminada);
-		
+		sigprocmask(SIG_BLOCK, &set, NULL);
 		printf("Ciudad: ");
 		scanf ("%s", &ciudad);
 		if (!strcmp(ciudad, "salir")) break;
@@ -17,7 +22,7 @@ int main(int argc, char argv[]) {
 		
 		crea_sucursal(ciudad, capacidad);
 		printf("\n");
-	}
-	signal (SIGCHLD, manejador_sala_terminada);
+		sigprocmask(SIG_UNBLOCK, &set, NULL);
+	}	
 }
 
