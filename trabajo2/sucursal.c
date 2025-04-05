@@ -21,7 +21,7 @@ void manejador_sala_terminada(int sig) {
     while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
         for (int i = 0; i < num_salas; i++) {
             if (salas[i].pid == pid) {
-                printf("La sala \"%s\" (PID %d) ha cerrado.\n", salas[i].nombre, pid);
+                printf("\nLa sala \"%s\" (PID %d) ha cerrado.\n", salas[i].nombre, pid);
                 if (WIFEXITED(status)) {
                     int exit_code = WEXITSTATUS(status);
                     if (exit_code == 0) {
