@@ -49,7 +49,7 @@ void crea_sucursal(const char *ciudad, const char *capacidad) {
             exit(EXIT_FAILURE);
 
         case 0:
-            execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
+            execlp("gnome-terminal", "gnome-terminal", "--wait", "--title", ciudad, "--", "./minishell", ciudad, capacidad, (char *)NULL);
             perror("execlp");
             exit(EXIT_FAILURE);
 
