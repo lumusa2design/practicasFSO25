@@ -28,7 +28,7 @@ void manejador_sala_terminada(int sig) {
                     if (exit_code == 0) {
                         printf("La sala cerró con todos los asientos ocupados.\n");
                     } else if (exit_code == 1) {
-                        printf(" La sala cerró con algunos asientos libres.\n");
+                        printf("La sala cerró con algunos asientos libres.\n");
                     } else {
                         printf("Nombre de salida de salida de sala inesperado: %d\n", exit_code);
                     }
@@ -64,7 +64,7 @@ void crea_sucursal(const char *ciudad, const char *capacidad) {
     }
 }
 
-int main(int argc, char *argv[]) {
+/* int main(int argc, char *argv[]) {
     if (argc != 3) {
         fprintf(stderr, "Uso: %s <ciudad> <capacidad>\n", argv[0]);
         exit(EXIT_FAILURE);
@@ -82,5 +82,5 @@ int main(int argc, char *argv[]) {
     }
 
     return 0;
-}
+}*/
 
