@@ -15,28 +15,16 @@ void crea_sucursal(const char *ciudad, const char *capacidad)
             exit(EXIT_FAILURE);
 
         case 0:
-            printf("Soy el hijo\n");
-execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
-
+            printf("Soy el hijo (sucursal en %s, capacidad %s)\n", ciudad, capacidad);
+            execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
             perror("execlp");
             exit(EXIT_FAILURE);
 
         default:
-        	int status;
-            	while (wait(&status) > 0){
-            	printf("Soy el padre\n");
-            	}
-            	break;
+            int status;
+            waitpid(pid, &status, 0);
+            printf("La sala \"%s\" ha cerrado.\n", ciudad);
+            break;
     }
-}
-
-int main(int argc, char * argv[])
-{
-	if(argc != 3) {
-		fprintf(stderr, "Número incorrecto de parámetros.\nEsperado: 2\nRecibido: %i\n", argc-1);
-		exit(-1);
-	}
-    crea_sucursal(argv[1], argv[2]);
-    return 0;
 }
 

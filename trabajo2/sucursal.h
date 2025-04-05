@@ -1,2 +1,2 @@
-void crea_sucursal(const char* ciudad, int capacidad);
+void crea_sucursal(const char* ciudad, char* capacidad);
 
