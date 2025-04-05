@@ -21,7 +21,7 @@ void manejador_sala_terminada(int sig) {
     while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
         for (int i = 0; i < num_salas; i++) {
             if (salas[i].pid == pid) {
-                printf("\n[INFO] La sala \"%s\" (PID %d) ha finalizado.\n", salas[i].nombre, pid);
+                printf("La sala \"%s\" (PID %d) ha cerrado.\n", salas[i].nombre, pid);
                 if (WIFEXITED(status)) {
                     int exit_code = WEXITSTATUS(status);
                     if (exit_code == 0) {
@@ -49,16 +49,12 @@ void crea_sucursal(const char *ciudad, const char *capacidad) {
             exit(EXIT_FAILURE);
 
         case 0:
-            // printf("Soy el hijo\n");
             execlp("gnome-terminal", "gnome-terminal", "--wait", "--", "./minishell", ciudad, capacidad, (char *)NULL);
             perror("execlp");
             exit(EXIT_FAILURE);
 
         default:
-            // printf("Soy el padre\n");
             int status;
-            // waitpid(pid, &status, 0);
-            // printf("La sala \"%s\" ha cerrado.\n", ciudad);
             if (num_salas < MAX_SALAS) {
                 salas[num_salas].pid = pid;
                 strncpy(salas[num_salas].nombre, ciudad, sizeof(salas[num_salas].nombre));
