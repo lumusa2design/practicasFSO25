@@ -174,3 +174,8 @@ char * nombre_sala() {
 	if (!existe_sala()) return NULL;
 	return miSala->ciudad;
 }
+
+int main (int argc, char * argv[]) {
+	// TODO
+}
+
