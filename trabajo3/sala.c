@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <fcntl.h>
+#include <errno.h>
 
 # define ASIENTO_LIBRE 0
 
@@ -175,7 +177,21 @@ char * nombre_sala() {
 	return miSala->ciudad;
 }
 
+
+int guardar_estado_sala(const char * ruta) {
+	int fd = open(ruta, O_RDONLY);
+	if (fd == -1) {
+		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+	}
+	
+}
+
+
 int main (int argc, char * argv[]) {
 	// TODO
+	
+	// PRUEBA
+	guardar_estado_sala ("./sala_telde.sala");
 }
+
 
