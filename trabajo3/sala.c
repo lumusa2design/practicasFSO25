@@ -2,12 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <errno.h>
 
 # define ASIENTO_LIBRE 0
+# define MAX_CIUDAD_LEN 20
+
 
 struct sala {
-	char ciudad[20];
+	char ciudad[MAX_CIUDAD_LEN];
 	int capacidad;
 	int libres;
 	int asientos[];
@@ -178,12 +181,38 @@ char * nombre_sala() {
 }
 
 
-int guardar_estado_sala(const char * ruta) {
-	int fd = open(ruta, O_RDONLY);
+int guarda_estado_sala(const char * ruta) {
+	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC);
 	if (fd == -1) {
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
 	}
 	
+	if (write(fd, miSala->ciudad, MAX_CIUDAD_LEN*sizeof(char)) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		return -1;
+	}
+	
+	
+	if (write(fd, miSala->capacidad, sizeof(int)) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		return -1;
+	}
+	
+	if (write(fd, miSala->libres, sizeof(int)) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		return -1;
+	}
+	
+	if (write(fd, miSala->asientos, miSala->capacidad*sizeof(int)) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		return -1;
+	}
+	return 0;
 }
 
 int recupera_estado_sala(const char* ruta) 
@@ -233,7 +262,7 @@ int main (int argc, char * argv[]) {
 	// TODO
 	
 	// PRUEBA
-	guardar_estado_sala ("./sala_telde.sala");
+	guarda_estado_sala ("./sala_telde.sala");
 }
 
 
