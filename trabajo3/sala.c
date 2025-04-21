@@ -186,6 +186,50 @@ int guardar_estado_sala(const char * ruta) {
 	
 }
 
+int recupera_estado_sala(const char* ruta) 
+{
+	int fd = open(ruta, O_RDONLY);
+	if(fd == -1) 
+	{
+		fprintf(stderr, "Erroral abrir el archivo\n", strerror(errno));
+		return -1;
+	}
+	
+	int file_capacity;
+	
+	if(read(fd, &file_capacity, sizeof(int)) != sizeof(int))
+	{
+		close(fd);
+		fprintf(stderr, "Error al leer la capacidad\n");
+		return -1;
+	}
+	
+	if(file_capacity != miSala-> capacidad)
+	{
+		close(fd);
+		fprintf(stderr, "la capacidad del archivo\n");
+		return -1;
+	}
+	
+	if (read(fd, &miSala->libres, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al leer asientos libres.\n");
+		return -1;
+	}
+	
+	if(read(fd, &miSala->asientos, sizeof(int) * miSala->capacidad) != sizeof(int) * miSala->capacidad)
+	{
+		close(fd);
+		fprintf(stderr, "error al leer los asientos\n");
+		return -1;
+	}
+	
+	close(fd);
+	return 0;
+	
+	
+}
+
 
 int main (int argc, char * argv[]) {
 	// TODO
