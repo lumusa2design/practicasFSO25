@@ -3,8 +3,9 @@
 #include <string.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <unistd.h>
 
-# define ASIENTO_LIBRE 0
+#define ASIENTO_LIBRE 0
 
 struct sala {
 	char ciudad[20];
@@ -13,61 +14,48 @@ struct sala {
 	int asientos[];
 };
 
-
 int existe_sala();
 int capacidad_sala();
 int estado_asiento(int id_asiento);
 
 struct sala *miSala = NULL;
 
-int libera_asiento(int id_asiento)
-{
-	if(!existe_sala())
-	{
+int libera_asiento(int id_asiento) {
+	if(!existe_sala()) {
 		fprintf(stderr, "La sala no existe\n");
 		return -1;
 	}
 	
-	if(id_asiento >= capacidad_sala() || id_asiento < 0 ) 
-	{
+	if(id_asiento >= capacidad_sala() || id_asiento < 0 ) {
 		fprintf(stderr,"El asiento %d no existe\n", id_asiento);
 		return -1;
 	}
-	if(estado_asiento(id_asiento) != ASIENTO_LIBRE) 
-	{
+	if(estado_asiento(id_asiento) != ASIENTO_LIBRE) {
 		int estado_old = estado_asiento(id_asiento);
 		miSala->libres ++;
 		miSala->asientos[id_asiento] = ASIENTO_LIBRE;
 		return estado_old;
-	} else 
-	{
+	} else {
 		fprintf(stderr, "El asiento ya estaba vacío.\n");
 		return -1;
 	}	
 }
 
-
-int reserva_asiento(int id_persona)
-{
-	if(!existe_sala()) 
-	{
+int reserva_asiento(int id_persona) {
+	if(!existe_sala()) {
 		fprintf(stderr,"la sala no existe\n");
 		return -1;
 	} 
-	if(id_persona < 0) 
-	{
+	if(id_persona < 0) {
 		fprintf(stderr, "El id de la persona tiene que ser positivo\n");
 		return -1;
 	}
-	if(id_persona == ASIENTO_LIBRE)
-	{
+	if(id_persona == ASIENTO_LIBRE) {
 		fprintf(stderr, "El id introducido no es válido. Id introducido: %i\n", id_persona);
 		return -1;
 	}
-	for(int i = 0; i <capacidad_sala(); i++)
-	{
-		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
-		{
+	for(int i = 0; i <capacidad_sala(); i++) {
+		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) {
 			miSala->asientos[i] = id_persona;
 			miSala->libres --;
 			return i;
@@ -76,7 +64,6 @@ int reserva_asiento(int id_persona)
 	fprintf(stderr, "La sala está llena.\n");
 	return -1;
 }
-
 
 int estado_asiento(int id_asiento) {
 	if (!existe_sala()) {
@@ -90,17 +77,13 @@ int estado_asiento(int id_asiento) {
 	return miSala->asientos[id_asiento];
 }
 
-
 int asientos_libres() {
 	if (!existe_sala()) {
 		fprintf(stderr, "La sala no existe.\n");
 		return -1;
 	}
-	
-
 	return miSala->libres;
 }
-
 
 int capacidad_sala() {
 	if (!existe_sala()) {
@@ -110,16 +93,13 @@ int capacidad_sala() {
 	return miSala->capacidad;
 }
 
-
 int asientos_ocupados () {
 	if (!existe_sala()) {
 		fprintf(stderr, "La sala no existe.\n");
 		return -1;
 	}
-	
 	return capacidad_sala() - asientos_libres();
 }
-
 
 int crea_sala(char nombre[20], int capacidad) {
 	if (existe_sala()) {
@@ -133,8 +113,7 @@ int crea_sala(char nombre[20], int capacidad) {
 	}
 	
 	miSala = (struct sala *) malloc(sizeof(struct sala) + capacidad * sizeof(int));
-	if(miSala == NULL) 
-	{
+	if(miSala == NULL) {
 		fprintf(stderr,"Error al crear sala\n");
 		return -1;
 	}
@@ -153,7 +132,6 @@ int crea_sala(char nombre[20], int capacidad) {
 	return capacidad;
 }
 
-
 int elimina_sala() {
 	if (!existe_sala()) {
 		fprintf(stderr,"La sala no existe.\n");
@@ -166,32 +144,171 @@ int elimina_sala() {
 	return 0;
 }
 
-
 int existe_sala() {
 	return miSala != NULL;
 }
-
 
 char * nombre_sala() {
 	if (!existe_sala()) return NULL;
 	return miSala->ciudad;
 }
 
+int guardar_estado_sala(const char *ruta) {
+	if (!existe_sala()) {
+		fprintf(stderr, "No hay sala creada.\n");
+		return -1;
+	}
 
-int guardar_estado_sala(const char * ruta) {
+	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+	if (fd == -1) {
+		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
+	}
+
+	if (write(fd, &miSala->capacidad, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al escribir capacidad.\n");
+		return -1;
+	}
+
+	if (write(fd, &miSala->libres, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al escribir libres.\n");
+		return -1;
+	}
+
+	if (write(fd, miSala->asientos, sizeof(int) * miSala->capacidad) != sizeof(int) * miSala->capacidad) {
+		close(fd);
+		fprintf(stderr, "Error al escribir asientos.\n");
+		return -1;
+	}
+
+	close(fd);
+	return 0;
+}
+
+int recupera_estado_sala(const char *ruta) {
+	if (!existe_sala()) {
+		fprintf(stderr, "No hay sala creada.\n");
+		return -1;
+	}
+
 	int fd = open(ruta, O_RDONLY);
 	if (fd == -1) {
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
 	}
-	
+
+	int capacidad_archivo;
+	if (read(fd, &capacidad_archivo, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al leer capacidad.\n");
+		return -1;
+	}
+
+	if (capacidad_archivo != miSala->capacidad) {
+		close(fd);
+		fprintf(stderr, "La capacidad del archivo no coincide con la sala actual.\n");
+		return -1;
+	}
+
+	if (read(fd, &miSala->libres, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al leer libres.\n");
+		return -1;
+	}
+
+	if (read(fd, miSala->asientos, sizeof(int) * miSala->capacidad) != sizeof(int) * miSala->capacidad) {
+		close(fd);
+		fprintf(stderr, "Error al leer asientos.\n");
+		return -1;
+	}
+
+	close(fd);
+	return 0;
 }
 
+int guardar_estado_parcial_sala(const char *ruta, size_t num_asientos, int* id_asientos) {
+	if (!existe_sala()) {
+		fprintf(stderr, "No hay sala creada.\n");
+		return -1;
+	}
 
-int main (int argc, char * argv[]) {
-	// TODO
-	
-	// PRUEBA
-	guardar_estado_sala ("./sala_telde.sala");
+	int fd = open(ruta, O_WRONLY);
+	if (fd == -1) {
+		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
+	}
+
+	for (size_t i = 0; i < num_asientos; i++) {
+		int id = id_asientos[i];
+		if (id < 0 || id >= miSala->capacidad) continue;
+		if (lseek(fd, sizeof(int) * 2 + sizeof(int) * id, SEEK_SET) == -1) {
+			close(fd);
+			fprintf(stderr, "Error en lseek.\n");
+			return -1;
+		}
+		if (write(fd, &miSala->asientos[id], sizeof(int)) != sizeof(int)) {
+			close(fd);
+			fprintf(stderr, "Error al escribir asiento %d.\n", id);
+			return -1;
+		}
+	}
+
+	close(fd);
+	return 0;
 }
 
+int recupera_estado_parcial_sala(const char *ruta, size_t num_asientos, int* id_asientos) {
+	if (!existe_sala()) {
+		fprintf(stderr, "No hay sala creada.\n");
+		return -1;
+	}
+
+	int fd = open(ruta, O_RDONLY);
+	if (fd == -1) {
+		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
+	}
+
+	for (size_t i = 0; i < num_asientos; i++) {
+		int id = id_asientos[i];
+		if (id < 0 || id >= miSala->capacidad) continue;
+		if (lseek(fd, sizeof(int) * 2 + sizeof(int) * id, SEEK_SET) == -1) {
+			close(fd);
+			fprintf(stderr, "Error en lseek.\n");
+			return -1;
+		}
+		if (read(fd, &miSala->asientos[id], sizeof(int)) != sizeof(int)) {
+			close(fd);
+			fprintf(stderr, "Error al leer asiento %d.\n", id);
+			return -1;
+		}
+	}
+
+	miSala->libres = 0;
+	for (int i = 0; i < miSala->capacidad; i++) {
+		if (miSala->asientos[i] == ASIENTO_LIBRE) {
+			miSala->libres++;
+		}
+	}
+
+	close(fd);
+	return 0;
+}
+
+int main(int argc, char *argv[]) {
+	// Ejemplo de uso
+	crea_sala("Telde", 5);
+	reserva_asiento(101);
+	reserva_asiento(102);
+	guardar_estado_sala("sala.sala");
+	elimina_sala();
+	crea_sala("Telde", 5);
+	recupera_estado_sala("sala.sala");
+
+	int asientos[] = {1, 3};
+	guardar_estado_parcial_sala("sala.sala", 2, asientos);
+	recupera_estado_parcial_sala("sala.sala", 2, asientos);
+}
 
