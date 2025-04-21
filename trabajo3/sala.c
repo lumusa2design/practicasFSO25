@@ -298,17 +298,6 @@ int recupera_estado_parcial_sala(const char *ruta, size_t num_asientos, int* id_
 }
 
 int main(int argc, char *argv[]) {
-	// Ejemplo de uso
-	crea_sala("Telde", 5);
-	reserva_asiento(101);
-	reserva_asiento(102);
-	guardar_estado_sala("sala.sala");
-	elimina_sala();
-	crea_sala("Telde", 5);
-	recupera_estado_sala("sala.sala");
 
-	int asientos[] = {1, 3};
-	guardar_estado_parcial_sala("sala.sala", 2, asientos);
-	recupera_estado_parcial_sala("sala.sala", 2, asientos);
 }
 
