@@ -191,7 +191,7 @@ int recupera_estado_sala(const char* ruta)
 	int fd = open(ruta, O_RDONLY);
 	if(fd == -1) 
 	{
-		fprintf(stderr, "Erroral abrir el archivo\n", strerror(errno));
+		fprintf(stderr, "Error al abrir el archivo\n", strerror(errno));
 		return -1;
 	}
 	
@@ -226,8 +226,6 @@ int recupera_estado_sala(const char* ruta)
 	
 	close(fd);
 	return 0;
-	
-	
 }
 
 
