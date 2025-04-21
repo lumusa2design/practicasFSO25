@@ -20,6 +20,7 @@ struct sala {
 int existe_sala();
 int capacidad_sala();
 int estado_asiento(int id_asiento);
+int digitos_asiento();
 
 struct sala *miSala = NULL;
 
@@ -124,7 +125,7 @@ int asientos_ocupados () {
 }
 
 
-int crea_sala(char nombre[20], int capacidad) {
+int crea_sala(char nombre[MAX_CIUDAD_LEN], int capacidad) {
 	if (existe_sala()) {
 		fprintf(stderr, "La sala ya está creada.\n");
 		return -1;
@@ -181,14 +182,36 @@ char * nombre_sala() {
 }
 
 
+void estado_sala() {
+    printf("Sala: %s\n", nombre_sala());
+    printf("Capacidad: %i\n", capacidad_sala());
+    printf("Asientos libres: %i\n", asientos_libres());
+    printf("Asientos ocupados: %i\n", asientos_ocupados());
+    for (int i = 0; i < capacidad_sala(); i++) {
+        printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
+    }
+    printf("\n");
+}
+
+int digitos_asiento() {
+    int digitos = 0;
+    for (int capacidad = capacidad_sala(); capacidad > 0; capacidad /=10) digitos++;
+    return digitos;
+}
+
 int guarda_estado_sala(const char * ruta) {
+	if(!existe_sala()) {
+		fprintf(stderr,"La sala no existe.\n");
+		return -1;
+	}
+	
 	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC, 0b111111111);
 	if (fd == -1) {
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
 		return -1;
 	}
 	
-	if (write(fd, &miSala->ciudad, MAX_CIUDAD_LEN*sizeof(char)) == -1) {
+	if (write(fd, miSala->ciudad, MAX_CIUDAD_LEN) == -1) {
 		close(fd);
 		fprintf(stderr, "Error al escribir (nombre): %s\n", strerror(errno));
 		return -1;
@@ -226,9 +249,9 @@ int recupera_estado_sala(const char* ruta)
 		return -1;
 	}
 	
-	char * name_file;
+	char name_file[MAX_CIUDAD_LEN];
 	
-	if(read(fd, &name_file, sizeof(char)) != sizeof(char))
+	if(read(fd, &name_file, MAX_CIUDAD_LEN*sizeof(char)) != MAX_CIUDAD_LEN*sizeof(char))
 	{
 		close(fd);
 		fprintf(stderr, "Error al leer el nombre");
@@ -242,6 +265,8 @@ int recupera_estado_sala(const char* ruta)
 		fprintf(stderr, "Error al leer la capacidad\n");
 		return -1;
 	}
+	
+	crea_sala(name_file, file_capacity);
 	
 	if(file_capacity != miSala-> capacidad)
 	{
@@ -275,7 +300,17 @@ int recupera_estado_sala(const char* ruta)
 
 int main (int argc, char * argv[]) {
 	// TODO
-	
 	// PRUEBA
-	guarda_estado_sala ("./sala_telde.sala");
+	crea_sala("Cines Yelmo", 30);
+	reserva_asiento(2);
+	reserva_asiento(4);
+	reserva_asiento(15);
+	libera_asiento(1);
+	estado_sala();
+	guarda_estado_sala("./holaxd.sala");
+	printf("\n\n\n==========================================\n\n\n");
+	elimina_sala();
+	
+	recupera_estado_sala("./holaxd.sala");
+	estado_sala();	
 }
