@@ -182,36 +182,38 @@ char * nombre_sala() {
 
 
 int guarda_estado_sala(const char * ruta) {
-	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC);
+	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC, 0b111111111);
 	if (fd == -1) {
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
 		return -1;
 	}
 	
-	if (write(fd, miSala->ciudad, MAX_CIUDAD_LEN*sizeof(char)) == -1) {
+	if (write(fd, &miSala->ciudad, MAX_CIUDAD_LEN*sizeof(char)) == -1) {
 		close(fd);
-		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		fprintf(stderr, "Error al escribir (nombre): %s\n", strerror(errno));
 		return -1;
 	}
 	
 	
-	if (write(fd, miSala->capacidad, sizeof(int)) == -1) {
+	if (write(fd, &miSala->capacidad, sizeof(int)) == -1) {
 		close(fd);
-		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		fprintf(stderr, "Error al escsribir (capacidad): %s\n", strerror(errno));
 		return -1;
 	}
 	
-	if (write(fd, miSala->libres, sizeof(int)) == -1) {
+	if (write(fd, &miSala->libres, sizeof(int)) == -1) {
 		close(fd);
-		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		fprintf(stderr, "Error al escribir (asientos libres): %s\n", strerror(errno));
 		return -1;
 	}
 	
-	if (write(fd, miSala->asientos, miSala->capacidad*sizeof(int)) == -1) {
+	if (write(fd, &miSala->asientos, miSala->capacidad*sizeof(int)) == -1) {
 		close(fd);
-		fprintf(stderr, "Error al leer archivo: %s\n", strerror(errno));
+		fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
 		return -1;
 	}
+	
+	close(fd);
 	return 0;
 }
 
@@ -277,5 +279,3 @@ int main (int argc, char * argv[]) {
 	// PRUEBA
 	guarda_estado_sala ("./sala_telde.sala");
 }
-
-
