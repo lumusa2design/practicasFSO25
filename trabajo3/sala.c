@@ -230,6 +230,11 @@ int recupera_estado_sala(const char* ruta)
 	
 }
 
+	int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
+	{
+		
+	}
+
 
 int main (int argc, char * argv[]) {
 	// TODO
