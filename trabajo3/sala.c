@@ -21,6 +21,7 @@ int existe_sala();
 int capacidad_sala();
 int estado_asiento(int id_asiento);
 int digitos_asiento();
+int posicion_cursor_asiento(int id_asiento);
 
 struct sala *miSala = NULL;
 
@@ -211,7 +212,7 @@ int guarda_estado_sala(const char * ruta) {
 		return -1;
 	}
 	
-	if (write(fd, miSala->ciudad, MAX_CIUDAD_LEN) == -1) {
+	if (write(fd, &miSala->ciudad, MAX_CIUDAD_LEN) == -1) {
 		close(fd);
 		fprintf(stderr, "Error al escribir (nombre): %s\n", strerror(errno));
 		return -1;
@@ -230,14 +231,50 @@ int guarda_estado_sala(const char * ruta) {
 		return -1;
 	}
 	
-	if (write(fd, &miSala->asientos, miSala->capacidad*sizeof(int)) == -1) {
-		close(fd);
-		fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
-		return -1;
+	for(int i = 0; i < capacidad_sala(); i++) {
+		if (write(fd, &miSala->asientos[i], sizeof(int)) == -1) {
+			close(fd);
+			fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
+			return -1;
+		}
 	}
 	
 	close(fd);
 	return 0;
+}
+
+int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_asientos) {
+	if(!existe_sala()) {
+		fprintf(stderr,"La sala no existe.\n");
+		return -1;
+	}
+	
+	int fd = open(ruta, O_WRONLY);
+	if (fd == -1) {
+		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
+		return -1;
+	}
+	
+	for (int i = 0; i < num_asientos; i++) {
+		if (lseek(fd, posicion_cursor_asiento(id_asientos[i]), SEEK_END) == -1) {
+			close(fd);
+			fprintf(stderr, "Error al posicionar el cursor: %s\n", strerror(errno));
+			return -1;
+		}
+		
+		if (write(fd, &miSala->asientos[id_asientos[i]], sizeof(int)) == -1) {
+			close(fd);
+			fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
+			return -1;
+		}
+	}
+	
+	close(fd);
+	return 0;
+}
+
+int posicion_cursor_asiento(int id_asiento) {
+	return -1*(capacidad_sala()-id_asiento)*sizeof(int);
 }
 
 int recupera_estado_sala(const char* ruta) 
@@ -300,17 +337,15 @@ int recupera_estado_sala(const char* ruta)
 
 int main (int argc, char * argv[]) {
 	// TODO
-	// PRUEBA
-	crea_sala("Cines Yelmo", 30);
-	reserva_asiento(2);
-	reserva_asiento(4);
-	reserva_asiento(15);
-	libera_asiento(1);
-	estado_sala();
-	guarda_estado_sala("./holaxd.sala");
-	printf("\n\n\n==========================================\n\n\n");
-	elimina_sala();
+	crea_sala("Jerusalem", 100);
+	guarda_estado_sala("./jesucristo_superstar.sala");
 	
-	recupera_estado_sala("./holaxd.sala");
-	estado_sala();	
+	reserva_asiento(1);
+	reserva_asiento(2);
+	
+	int asientos_crema[] = {0, 1};
+	guarda_estado_parcial_sala("./jesucristo_superstar.sala", 2, asientos_crema);
+	elimina_sala();
+	recupera_estado_sala("./jesucristo_superstar.sala");
+	estado_sala();
 }
