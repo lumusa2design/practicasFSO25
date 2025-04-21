@@ -195,6 +195,14 @@ int recupera_estado_sala(const char* ruta)
 		return -1;
 	}
 	
+	char * name_file;
+	
+	if(read(fd, &name_file, sizeof(char)) != sizeof(char))
+	{
+		close(fd);
+		fprintf(stderr, "Error al leer el nombre");
+		return -1;
+	}
 	int file_capacity;
 	
 	if(read(fd, &file_capacity, sizeof(int)) != sizeof(int))
