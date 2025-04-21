@@ -224,6 +224,14 @@ int recupera_estado_sala(const char* ruta)
 		return -1;
 	}
 	
+	char * name_file;
+	
+	if(read(fd, &name_file, sizeof(char)) != sizeof(char))
+	{
+		close(fd);
+		fprintf(stderr, "Error al leer el nombre");
+		return -1;
+	}
 	int file_capacity;
 	
 	if(read(fd, &file_capacity, sizeof(int)) != sizeof(int))
@@ -256,6 +264,11 @@ int recupera_estado_sala(const char* ruta)
 	close(fd);
 	return 0;
 }
+
+	int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
+	{
+		
+	}
 
 
 int main (int argc, char * argv[]) {
