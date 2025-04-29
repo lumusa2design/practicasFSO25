@@ -329,23 +329,8 @@ int recupera_estado_sala(const char* ruta)
 	return 0;
 }
 
-	int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
-	{
-		
-	}
-
-
-int main (int argc, char * argv[]) {
-	// TODO
-	crea_sala("Jerusalem", 100);
-	guarda_estado_sala("./jesucristo_superstar.sala");
+int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
+{
 	
-	reserva_asiento(1);
-	reserva_asiento(2);
-	
-	int asientos_crema[] = {0, 1};
-	guarda_estado_parcial_sala("./jesucristo_superstar.sala", 2, asientos_crema);
-	elimina_sala();
-	recupera_estado_sala("./jesucristo_superstar.sala");
-	estado_sala();
 }
+
