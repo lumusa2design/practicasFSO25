@@ -123,10 +123,12 @@ int main (int argc, char *argv[]) {
 				exit(-1);
 			}
 		}
-		if (guarda_estado_parcial_sala(route, n_ids, seat_ids) == -1) {
+		if (guarda_estado_sala(route, 1) == -1) {
 			fprintf(stderr, "Error al guardar los datos.\n");
 			exit(-1);
 		}
+		free(ids);
+		free(seat_ids);
 		printf("Reserva hecha correctamente.\n");
 		
 		
@@ -166,6 +168,13 @@ int main (int argc, char *argv[]) {
 			fprintf(stderr, "Uso: %s ayuda\n", argv[0]);
 			exit(-1);
 		}
+		printf("Lista de comandos:\n");
+		printf("%s crea -f ruta [-o] -c capacidad\n", argv[0]);
+		printf("%s reserva -f ruta id_persona1 [id_persona2 ... id_personaN]\n", argv[0]);
+		printf("%s anula -f ruta id_asiento1 [id_asiento2 ... id_asientoN]\n", argv[0]);
+		printf("%s estado -f ruta\n", argv[0]);
+		printf("%s ayuda\n", argv[0]);
+
 		
 	} else {
 		fprintf(stderr, "Comando desconocido. Escribie \"%s ayuda\" para ver los comandos disponibles.\n", argv[0]);
