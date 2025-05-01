@@ -200,13 +200,17 @@ int digitos_asiento() {
     return digitos;
 }
 
-int guarda_estado_sala(const char * ruta) {
+int guarda_estado_sala(const char * ruta, int existe) {
 	if(!existe_sala()) {
 		fprintf(stderr,"La sala no existe.\n");
 		return -1;
 	}
-	
-	int fd = open(ruta, O_WRONLY | O_CREAT | O_TRUNC, 0b111111111);
+	int fd;
+	if (existe != 0) {
+		fd = open(ruta, O_WRONLY | O_TRUNC);
+	} else {
+		fd = open(ruta, O_WRONLY | O_CREAT | O_EXCL, 0b111111111); 
+	}
 	if (fd == -1) {
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
 		return -1;
