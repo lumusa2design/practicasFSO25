@@ -108,7 +108,7 @@ int main (int argc, char *argv[]) {
 			}
 		}
 		if (fflag == 0 || err == 1) {
-			fprintf(stderr, "Uso: %s reserva -f ruta id_persona1 id_persona2 ... id_personaN\n", argv[0]);
+			fprintf(stderr, "Uso: %s reserva -f ruta id_persona1 [id_persona2 ... id_personaN]\n", argv[0]);
 			exit(-1);
 		}
 		
@@ -133,7 +133,61 @@ int main (int argc, char *argv[]) {
 		
 		
 	} else if (!strcmp("anula", argv[1])) {
-		// TODO
+		int n_ids;
+		int *ids;
+		while ((param = getopt(argc, argv, "f:")) != -1) {
+			switch (param) {
+				case 'f':
+					if (fflag == 1) {
+						err == 1;
+						break;
+					}
+					fflag = 1;
+					route = optarg;
+					
+					n_ids = argc - optind;
+					if (n_ids <= 0) {
+						err = 1;
+						break;
+					}
+					ids = malloc(n_ids*sizeof(int));
+					if (ids == NULL) {
+						fprintf(stderr, "Error al asignar memoria para la lista de ids.\n");
+						exit(-1);
+					}
+					for (int i = 0; i < n_ids; i++) {
+						ids[i] = atoi(argv[i+optind]);
+					}
+					
+					break;
+				case '?':
+					err = 1;
+					break;
+			}
+		}
+		if (fflag == 0 || err == 1) {
+			fprintf(stderr, "Uso: %s anula -f ruta id_asiento1 [id_asiento2 ... id_asientoN]\n", argv[0]);
+			exit(-1);
+		}
+		
+		if (recupera_estado_sala(route) == -1) {
+			fprintf(stderr, "Error al recuperar la sala.\n");
+			exit(-1);
+		}
+		
+		for (int i = 0; i < n_ids; i++) {
+			if (libera_asiento(ids[i]) == -1) {
+				fprintf(stderr, "Error al anular reserva.\n");
+				exit(-1);
+			}
+		}
+		if (guarda_estado_sala(route, 1) == -1) {
+			fprintf(stderr, "Error al guardar los datos.\n");
+			exit(-1);
+		}
+		free(ids);
+		printf("Reserva anulada correctamente.\n");
+		
 		
 	} else if (!strcmp("estado", argv[1])) {
 		while ((param = getopt(argc, argv, "f:")) != -1) {
@@ -177,7 +231,7 @@ int main (int argc, char *argv[]) {
 
 		
 	} else {
-		fprintf(stderr, "Comando desconocido. Escribie \"%s ayuda\" para ver los comandos disponibles.\n", argv[0]);
+		fprintf(stderr, "Comando desconocido. Escribe \"%s ayuda\" para ver los comandos disponibles.\n", argv[0]);
 		exit(-1);
 	}
 	
