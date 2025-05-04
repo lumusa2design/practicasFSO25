@@ -8,6 +8,8 @@
 
 #include "sala.h"
 
+# define MAX_CIUDAD_LEN 20
+
 int main(int argc, char *argv[]) {
 	extern char *optarg;
 	extern int optind, opterr, optopt;
@@ -35,7 +37,9 @@ int main(int argc, char *argv[]) {
 		if (!fflag || !cflag || err) {
 			fprintf(stderr, "Uso: %s crea -f ruta [-o] -c capacidad\n", argv[0]); exit(-1);
 		}
-		if (crea_sala("", capacity) == -1 || guarda_estado_sala(route, oflag) == -1) {
+char nombre_vacio[MAX_CIUDAD_LEN] = "";
+if (crea_sala(nombre_vacio, capacity) == -1 || guarda_estado_sala(route, oflag) == -1) {
+
 			fprintf(stderr, "Error al crear o guardar la sala.\n"); exit(-1);
 		}
 		printf("Sala creada con capacidad %d en %s\n", capacity, route);

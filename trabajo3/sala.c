@@ -24,6 +24,8 @@ int capacidad_sala();
 int estado_asiento(int id_asiento);
 int digitos_asiento();
 int posicion_cursor_asiento(int id_asiento);
+int posicion_cursor_libres();
+
 
 struct sala *miSala = NULL;
 
@@ -261,7 +263,7 @@ int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_a
 		return -1;
 	}
 	
-	if (lseek(fd, posicion_cursor_libres(), SEEK_SET) == -1) {
+	if (lseek(fd, posicion_cursor_libres(), SEEK_SET) == -1){
 		close(fd);
 		fprintf(stderr, "Error al posicionar el cursor: %s\n", strerror(errno));
 		return -1;
