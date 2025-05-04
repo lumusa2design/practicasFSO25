@@ -4,6 +4,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sys/stat.h>
+
 
 # define ASIENTO_LIBRE 0
 # define MAX_CIUDAD_LEN 20
@@ -66,7 +68,7 @@ int reserva_asiento(int id_persona)
 	}
 	if(id_persona == ASIENTO_LIBRE)
 	{
-		fprintf(stderr, "El id introducido no es válido. Id introducido: %i\n", id_persona);
+		fprintf(stderr, "El id introducido no es válido. Id introducido: %imisala\n", id_persona);
 		return -1;
 	}
 	for(int i = 0; i <capacidad_sala(); i++)
@@ -335,6 +337,140 @@ int recupera_estado_sala(const char* ruta)
 
 int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
 {
+	if(!existe_sala())
+	{
+		fprintf(stderr, "La sala no existe\n");
+		return -1;
+	}
 	
+	int fd = open(ruta_fichero, O_RDONLY);
+	if(fd == -1)
+	{
+		fprintf(stderr, "Error al abrir el archivo\n");
+		return -1;
+	}	
+	
+	char nombre_archivo[MAX_CIUDAD_LEN];
+	if (read(fd, nombre_archivo, MAX_CIUDAD_LEN) != MAX_CIUDAD_LEN) {
+		close(fd);
+		fprintf(stderr, "Error al leer el nombre.\n");
+		return -1;
+	}
+	
+	int file_capacity;
+	if (read(fd, &file_capacity, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al leer la capacidad.\n");
+		return -1;
+	}
+	
+	if (file_capacity != miSala->capacidad) {
+		close(fd);
+		fprintf(stderr, "La capacidad del archivo no coincide con la de la sala actual.\n");
+		return -1;
+	}
+	
+	
+	if (lseek(fd, sizeof(int), SEEK_CUR) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al saltar lectura de asientos libres.\n");
+		return -1;
+	}
+	
+	for (size_t i = 0; i < num_asientos; i++) {
+		int id = id_asientos[i];
+
+		if (id < 0 || id >= miSala->capacidad) {
+			fprintf(stderr, "Asiento %d fuera de rango. Se omite.\n", id);
+			continue;
+		}
+
+		off_t offset = MAX_CIUDAD_LEN + sizeof(int) + sizeof(int) + id * sizeof(int);
+		if (lseek(fd, offset, SEEK_SET) == -1) {
+			close(fd);
+			fprintf(stderr, "Error en la posicion del asiento %d.\n", id);
+			return -1;
+		}
+
+		if (read(fd, &miSala->asientos[id], sizeof(int)) != sizeof(int)) {
+			close(fd);
+			fprintf(stderr, "Error al leer el asiento %d.\n", id);
+			return -1;
+		}
+	}
+	
+	int libres = 0;
+	for (int i = 0; i < miSala->capacidad; i++) {
+		if (miSala->asientos[i] == ASIENTO_LIBRE) {
+			libres++;
+		}
+	}
+	miSala->libres = libres;
+
+	close(fd);
+	return 0;
+}
+
+/** RETO**/
+int anula(int id_persona) {
+	if (!existe_sala()) return -1;
+
+	int encontrado = 0;
+	for (int i = 0; i < miSala->capacidad; i++) {
+		if (miSala->asientos[i] == id_persona) {
+			libera_asiento(i);
+			encontrado = 1;
+		}
+	}
+	if (!encontrado) return -1;
+	return 0;
+}
+
+int compara(const char *ruta1, const char *ruta2) {
+    struct stat st1, st2;
+
+    if (stat(ruta1, &st1) == -1) {
+        fprintf(stderr, "Error al obtener información de %s: %s\n", ruta1, strerror(errno));
+        return -1;
+    }
+
+    if (stat(ruta2, &st2) == -1) {
+        fprintf(stderr, "Error al obtener información de %s: %s\n", ruta2, strerror(errno));
+        return -1;
+    }
+
+    if (st1.st_size != st2.st_size) {
+        return 1; // Son diferentes por tamaño
+    }
+
+    int fd1 = open(ruta1, O_RDONLY);
+    if (fd1 == -1) {
+        fprintf(stderr, "Error al abrir %s: %s\n", ruta1, strerror(errno));
+        return -1;
+    }
+
+    int fd2 = open(ruta2, O_RDONLY);
+    if (fd2 == -1) {
+        fprintf(stderr, "Error al abrir %s: %s\n", ruta2, strerror(errno));
+        close(fd1);
+        return -1;
+    }
+
+    char buf1[1024], buf2[1024];
+    ssize_t r1, r2;
+    int iguales = 1;
+
+    while ((r1 = read(fd1, buf1, sizeof(buf1))) > 0 &&
+           (r2 = read(fd2, buf2, sizeof(buf2))) > 0) {
+        if (r1 != r2 || memcmp(buf1, buf2, r1) != 0) {
+            iguales = 0;
+            break;
+        }
+    }
+
+    close(fd1);
+    close(fd2);
+
+    return iguales ? 0 : 1;
 }
 

@@ -15,6 +15,7 @@ int guarda_estado_sala(const char* ruta_fichero, int existe);
 int recupera_estado_sala(const char* ruta_fichero);
 int guarda_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos);
 int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos);
-
+int anula(int id_persona);
+int compara(const char* ruta_fichero1, const char* rutafichero2);
 
 #endif /* SALA_H_ */
