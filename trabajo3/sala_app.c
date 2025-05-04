@@ -89,6 +89,7 @@ int main(int argc, char *argv[]) {
 		if (resultado == -1) {
 			fprintf(stderr, "Error comparando los archivos.\n"); exit(-1);
 		}
+		printf("Resultado: %d\n", resultado);
 		exit(resultado);
 
 	} else if (!strcmp("estado", argv[1])) {
@@ -110,7 +111,7 @@ int main(int argc, char *argv[]) {
 		printf("Lista de comandos:\n");
 		printf("%s crea -f ruta [-o] -c capacidad\n", argv[0]);
 		printf("%s reserva -f ruta id_persona1 [id_persona2 ...]\n", argv[0]);
-		printf("%s anula -f ruta id_asiento1 [id_asiento2 ...]\n", argv[0]);
+		// printf("%s anula -f ruta id_asiento1 [id_asiento2 ...]\n", argv[0]);
 		printf("%s anula ruta -personas id1 [id2 ...]\n", argv[0]);
 		printf("%s compara ruta1 ruta2\n", argv[0]);
 		printf("%s estado -f ruta\n", argv[0]);

@@ -156,7 +156,7 @@ int crea_sala(char nombre[MAX_CIUDAD_LEN], int capacidad) {
 	for(int i = 0; i < capacidad; i++) {
 		miSala->asientos[i] = ASIENTO_LIBRE;
 	}
-	fprintf(stderr, "Sala creada correctamente.\n");
+	// fprintf(stderr, "Sala creada correctamente.\n");
 	return capacidad;
 }
 
@@ -169,7 +169,7 @@ int elimina_sala() {
 	
 	free(miSala);
 	miSala = NULL;
-	fprintf(stderr, "Sala eliminada correctamente.\n");
+	// fprintf(stderr, "Sala eliminada correctamente.\n");
 	return 0;
 }
 
