@@ -261,6 +261,17 @@ int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_a
 		return -1;
 	}
 	
+	if (lseek(fd, posicion_cursor_libres(), SEEK_SET) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al posicionar el cursor: %s\n", strerror(errno));
+		return -1;
+	}
+	if (write(fd, &miSala->libres, sizeof(int)) == -1) {
+			close(fd);
+			fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
+			return -1;
+		}
+	
 	for (int i = 0; i < num_asientos; i++) {
 		if (lseek(fd, posicion_cursor_asiento(id_asientos[i]), SEEK_END) == -1) {
 			close(fd);
@@ -277,6 +288,10 @@ int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_a
 	
 	close(fd);
 	return 0;
+}
+
+int posicion_cursor_libres() {
+	return MAX_CIUDAD_LEN*sizeof(char) + sizeof(int);
 }
 
 int posicion_cursor_asiento(int id_asiento) {
