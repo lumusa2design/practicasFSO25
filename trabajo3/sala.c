@@ -263,27 +263,58 @@ int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_a
 		return -1;
 	}
 	
+
 	if (lseek(fd, posicion_cursor_libres(), SEEK_SET) == -1){
+
+	char nombre_archivo[MAX_CIUDAD_LEN];
+	if (read(fd, nombre_archivo, MAX_CIUDAD_LEN) != MAX_CIUDAD_LEN) {
 		close(fd);
-		fprintf(stderr, "Error al posicionar el cursor: %s\n", strerror(errno));
+		fprintf(stderr, "Error al leer el nombre.\n");
 		return -1;
 	}
-	if (write(fd, &miSala->libres, sizeof(int)) == -1) {
-			close(fd);
-			fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
-			return -1;
-		}
 	
-	for (int i = 0; i < num_asientos; i++) {
-		if (lseek(fd, posicion_cursor_asiento(id_asientos[i]), SEEK_END) == -1) {
+	int file_capacity;
+	if (read(fd, &file_capacity, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al leer la capacidad del archivo.\n");
+		return -1;
+	}
+	
+	if (file_capacity != miSala->capacidad) {
+		close(fd);
+		fprintf(stderr, "Capacidad del archivo no coincide con la de la sala.\n");
+		return -1;
+	}
+	
+	
+if (lseek(fd, MAX_CIUDAD_LEN + sizeof(int), SEEK_SET) == -1) {
+		close(fd);
+		fprintf(stderr, "Error al posicionar para escribir libres.\n");
+		return -1;
+	}
+	if (write(fd, &miSala->libres, sizeof(int)) != sizeof(int)) {
+		close(fd);
+		fprintf(stderr, "Error al escribir número de libres.\n");
+		return -1;
+	}
+	
+	for (size_t i = 0; i < num_asientos; i++) {
+		int id = id_asientos[i];
+		if (id < 0 || id >= miSala->capacidad) {
+			fprintf(stderr, "ID de asiento %d fuera de rango. Se ignora.\n", id);
+			continue;
+		}
+
+		off_t offset = MAX_CIUDAD_LEN + sizeof(int) + sizeof(int) + id * sizeof(int);
+		if (lseek(fd, offset, SEEK_SET) == -1) {
 			close(fd);
-			fprintf(stderr, "Error al posicionar el cursor: %s\n", strerror(errno));
+			fprintf(stderr, "Error al posicionar el cursor para asiento %d.\n", id);
 			return -1;
 		}
-		
-		if (write(fd, &miSala->asientos[id_asientos[i]], sizeof(int)) == -1) {
+
+		if (write(fd, &miSala->asientos[id], sizeof(int)) != sizeof(int)) {
 			close(fd);
-			fprintf(stderr, "Error al escribir (asientos): %s\n", strerror(errno));
+			fprintf(stderr, "Error al escribir estado de asiento %d.\n", id);
 			return -1;
 		}
 	}
@@ -352,48 +383,44 @@ int recupera_estado_sala(const char* ruta)
 	return 0;
 }
 
-int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos)
-{
-	if(!existe_sala())
-	{
+int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, int* id_asientos) {
+	if (!existe_sala()) {
 		fprintf(stderr, "La sala no existe\n");
 		return -1;
 	}
-	
+
 	int fd = open(ruta_fichero, O_RDONLY);
-	if(fd == -1)
-	{
+	if (fd == -1) {
 		fprintf(stderr, "Error al abrir el archivo\n");
 		return -1;
-	}	
-	
+	}
+
 	char nombre_archivo[MAX_CIUDAD_LEN];
 	if (read(fd, nombre_archivo, MAX_CIUDAD_LEN) != MAX_CIUDAD_LEN) {
 		close(fd);
 		fprintf(stderr, "Error al leer el nombre.\n");
 		return -1;
 	}
-	
+
 	int file_capacity;
 	if (read(fd, &file_capacity, sizeof(int)) != sizeof(int)) {
 		close(fd);
 		fprintf(stderr, "Error al leer la capacidad.\n");
 		return -1;
 	}
-	
+
 	if (file_capacity != miSala->capacidad) {
 		close(fd);
 		fprintf(stderr, "La capacidad del archivo no coincide con la de la sala actual.\n");
 		return -1;
 	}
-	
-	
+
 	if (lseek(fd, sizeof(int), SEEK_CUR) == -1) {
 		close(fd);
 		fprintf(stderr, "Error al saltar lectura de asientos libres.\n");
 		return -1;
 	}
-	
+
 	for (size_t i = 0; i < num_asientos; i++) {
 		int id = id_asientos[i];
 
@@ -415,7 +442,7 @@ int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, 
 			return -1;
 		}
 	}
-	
+
 	int libres = 0;
 	for (int i = 0; i < miSala->capacidad; i++) {
 		if (miSala->asientos[i] == ASIENTO_LIBRE) {
@@ -427,6 +454,7 @@ int recupera_estado_parcial_sala(const char* ruta_fichero, size_t num_asientos, 
 	close(fd);
 	return 0;
 }
+
 
 /** RETO**/
 int anula(int id_persona) {
