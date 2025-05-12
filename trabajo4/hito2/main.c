@@ -18,7 +18,9 @@ void* hilo_reservas(void* args) {
 	}
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		libera_asiento(asientos[i]);
+		if (asientos[i] != -1) {
+			libera_asiento(asientos[i]);
+		}
 		pausa_aleatoria(MAX_PAUSA);
 	}
 }
