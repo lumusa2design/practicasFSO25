@@ -14,6 +14,7 @@ struct sala {
 
 
 int existe_sala();
+int digitos_asiento();
 
 struct sala *miSala = NULL;
 
@@ -134,7 +135,6 @@ int crea_sala(int capacidad) {
 	for(int i = 0; i < capacidad; i++) {
 		miSala->asientos[i] = ASIENTO_LIBRE;
 	}
-	fprintf(stderr, "Sala creada correctamente.\n");
 	return capacidad;
 }
 
@@ -146,7 +146,6 @@ int elimina_sala() {
 	
 	free(miSala);
 	miSala = NULL;
-	fprintf(stderr, "Sala eliminada correctamente.\n");
 	return 0;
 }
 
@@ -155,7 +154,7 @@ int existe_sala() {
 }
 
 void estado_sala() {
-    printf("Sala: %s\n", nombre_sala());
+    printf("Sala: %s\n", miSala->nombre);
     printf("Capacidad: %i\n", capacidad_sala());
     printf("Asientos libres: %i\n", asientos_libres());
     printf("Asientos ocupados: %i\n", asientos_ocupados());
