@@ -154,3 +154,20 @@ int existe_sala() {
 	return miSala != NULL;
 }
 
+void estado_sala() {
+    printf("Sala: %s\n", nombre_sala());
+    printf("Capacidad: %i\n", capacidad_sala());
+    printf("Asientos libres: %i\n", asientos_libres());
+    printf("Asientos ocupados: %i\n", asientos_ocupados());
+    for (int i = 0; i < capacidad_sala(); i++) {
+        printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
+    }
+    printf("\n");
+}
+
+int digitos_asiento() {
+    int digitos = 0;
+    for (int capacidad = capacidad_sala(); capacidad > 0; capacidad /=10) digitos++;
+    return digitos;
+}
+
