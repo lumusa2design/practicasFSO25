@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <pthread.h>
 #include "sala.h"
 
 # define ASIENTO_LIBRE 0
@@ -12,7 +13,7 @@ struct sala {
 	int asientos[];
 };
 
-
+pthread_mutex_t mymutex = PTHREAD_MUTEX_INITIALIZER;
 int existe_sala();
 
 struct sala *miSala = NULL;
@@ -33,8 +34,10 @@ int libera_asiento(int id_asiento)
 	if(estado_asiento(id_asiento) > 0) 
 	{
 		int estado_old = estado_asiento(id_asiento);
+		pthread_mutex_lock(&mymutex);
 		miSala->libres ++;
 		miSala->asientos[id_asiento] = ASIENTO_LIBRE;
+		pthread_mutex_unlock(&mymutex);
 		return estado_old;
 	} else 
 	{
@@ -58,8 +61,10 @@ int reserva_asiento(int id_persona)
 	{
 		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
 		{
+			pthread_mutex_lock(&mymutex);
 			miSala->asientos[i] = id_persona;
 			miSala->libres --;
+			pthread_mutex_unlock(&mymutex);
 			return i;
 		}
 	}
@@ -128,13 +133,15 @@ int crea_sala(int capacidad) {
 		return -1;
 	}
 	
+	pthread_mutex_lock(&mymutex);
+	
 	strcpy(miSala->nombre, "");
 	miSala->capacidad = capacidad;
 	miSala->libres = capacidad;
 	for(int i = 0; i < capacidad; i++) {
 		miSala->asientos[i] = ASIENTO_LIBRE;
 	}
-	fprintf(stderr, "Sala creada correctamente.\n");
+	pthread_mutex_unlock(&mymutex);
 	return capacidad;
 }
 
@@ -143,10 +150,10 @@ int elimina_sala() {
 		fprintf(stderr,"La sala no existe.\n");
 		return -1;
 	}
-	
+	pthread_mutex_lock(&mymutex);
 	free(miSala);
 	miSala = NULL;
-	fprintf(stderr, "Sala eliminada correctamente.\n");
+	pthread_mutex_unlock(&mymutex);
 	return 0;
 }
 
