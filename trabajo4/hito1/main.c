@@ -21,7 +21,8 @@ void* hilo_reservas(void* args) {
 }
 
 void* hilo_estado(void* args) {
-	
+	estado_sala();
+	pausa_aleatoria(MAX_PAUSA);
 }
 
 
