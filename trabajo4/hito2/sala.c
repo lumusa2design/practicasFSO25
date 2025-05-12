@@ -14,6 +14,7 @@ struct sala {
 
 
 int existe_sala();
+void estado_sala();
 
 struct sala *miSala = NULL;
 
