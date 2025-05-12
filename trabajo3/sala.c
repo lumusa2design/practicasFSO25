@@ -262,7 +262,6 @@ int guarda_estado_parcial_sala(const char * ruta, size_t num_asientos, int* id_a
 		fprintf(stderr, "Error al abrir archivo: %s\n", strerror(errno));
 		return -1;
 	}
-	
 
 	if (lseek(fd, posicion_cursor_libres(), SEEK_SET) == -1){
 
