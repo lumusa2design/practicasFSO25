@@ -13,13 +13,21 @@
 void* hilo_reservas(void* args) {
 	int asientos[ITERACIONES_HILO];
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
+		printf("Reservando asiento para id %d...\n", i+20);
 		asientos[i] = reserva_asiento(i+20);
+		if (asientos[i] != -1) {
+			printf("Asiento %d reservado para id %d.\n", asientos[i], i+20);
+		} else {
+			printf("No se ha podido reservar el asiento para la id %d.\n", i+20);
+		}
 		pausa_aleatoria(MAX_PAUSA);
 	}
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
 		if (asientos[i] != -1) {
+			printf("Liberando asiento %d...\n", asientos[i]);
 			libera_asiento(asientos[i]);
+			printf("Asiento %d liberado.\n", asientos[i]);
 		}
 		pausa_aleatoria(MAX_PAUSA);
 	}
