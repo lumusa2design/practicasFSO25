@@ -5,21 +5,23 @@
 #include "retardo.h"
 
 #define ITERACIONES_HILO 3
+#define MAX_PAUSA 1.5
 
-void * hilo_reservas(void *args) {
+void* hilo_reservas(void* args) {
 	int asientos[ITERACIONES_HILO];
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
 		asiento[i] = reserva_asiento(i+20);
-		pausa_aleatoria(1.5);
+		pausa_aleatoria(MAX_PAUSA);
 	}
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
 		libera_asiento(asientos[i]);
+		pausa_aleatoria(MAX_PAUSA);
 	}
 }
 
-void * hilo_estado(void *args) {
-	// TODO
+void* hilo_estado(void* args) {
+	
 }
 
 
