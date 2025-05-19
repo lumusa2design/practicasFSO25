@@ -4,6 +4,7 @@
 #include <string.h>
 #include <errno.h>
 #include "sala.h"
+#include "retardo.h"
 
 #define COLOR_RED "\033[0;31m"
 #define COLOR_YELLOW "\033[0;33m"
@@ -22,7 +23,6 @@ void* hilo_reservas(void* arg) {
 		asientos[i] = reserva_asiento(i+base);
 		if (asientos[i] != -1) {
 			printf("%sHilo %d:%s Asiento %d reservado para id %d.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i], i+base);
-		estado_sala();
 		} else {
 			printf("%sHilo %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, i+base, COLOR_RESET);
 		}
@@ -35,7 +35,6 @@ void* hilo_reservas(void* arg) {
 				printf("%sHilo %d:%s ERROR: No se ha podido liberar el asiento con id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, asientos[i], COLOR_RESET);
 			} else {
 				printf("%sHilo %d:%s Asiento %d liberado.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
-		estado_sala();
 			}
 		}
 	}
@@ -44,6 +43,7 @@ void* hilo_reservas(void* arg) {
 void* hilo_estado(void* args) {
 	while(1) {
 		estado_sala();
+		pausa_aleatoria(MAX_PAUSA);
 	}
 }
 
@@ -77,12 +77,12 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	
-	/*pthread_t state_thread;
+	pthread_t state_thread;
 	if (ret = pthread_create(&state_thread, NULL, hilo_estado, NULL)) {
 		errno = ret;
 		fprintf(stderr, "Error al crear el hilo estado: %s\n", strerror(errno));
 		exit(-1);
-	}*/
+	}
 	
 	for (int i = 0; i < n_threads; i++) {
 		if (ret = pthread_join(threads[i], NULL)) {
@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
 		}
 	}
 	
-	// pthread_cancel(state_thread);
+	pthread_cancel(state_thread);
 	
 	estado_sala();
 	elimina_sala();

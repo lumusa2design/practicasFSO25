@@ -165,8 +165,7 @@ int existe_sala() {
 void estado_sala() {
     printf("Sala: %s\n", miSala->nombre);
     printf("Capacidad: %i\n", capacidad_sala());
-    printf("Asientos libres: %i\n", asientos_libres());
-    printf("Asientos ocupados: %i\n", asientos_ocupados());
+    printf("Libres: %d | Ocupados: %d\n", asientos_libres(), asientos_ocupados());
     for (int i = 0; i < capacidad_sala(); i++) {
         printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
     }

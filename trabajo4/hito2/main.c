@@ -7,34 +7,35 @@
 #include "retardo.h"
 
 #define COLOR_RED "\033[0;31m"
+#define COLOR_YELLOW "\033[0;33m"
 #define COLOR_RESET "\033[0m"
 
 #define ITERACIONES_HILO 3
-#define MAX_PAUSA 1.5
 #define CAPACIDAD_SALA 20
 
 void* hilo_reservas(void* arg) {
 	int asientos[ITERACIONES_HILO];
-	int base = (int)arg;
-	printf("%s%d%s\n", COLOR_RED, base, COLOR_RESET);
+	int id_hilo = (int)arg;
+	int base = id_hilo*10;
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		pausa_aleatoria(MAX_PAUSA);
-		printf("Reservando asiento para id %d...\n", i+base);
+		printf("%sHilo %d:%s Reservando asiento para id %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, i+base);
 		asientos[i] = reserva_asiento(i+base);
 		if (asientos[i] != -1) {
-			printf("Asiento %d reservado para id %d.\n", asientos[i], i+base);
+			printf("%sHilo %d:%s Asiento %d reservado para id %d.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i], i+base);
 		} else {
-			printf("%sNo se ha podido reservar el asiento para la id %d.\n%s", COLOR_RED, i+base, COLOR_RESET);
+			printf("%sHilo %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, i+base, COLOR_RESET);
 		}
 	}
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		pausa_aleatoria(MAX_PAUSA);
 		if (asientos[i] != -1) {
-			printf("Liberando asiento %d...\n", asientos[i]);
-			libera_asiento(asientos[i]);
-			printf("Asiento %d liberado.\n", asientos[i]);
+			printf("%sHilo %d:%s Liberando asiento %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
+			if (libera_asiento(asientos[i]) == -1) {
+				printf("%sHilo %d:%s ERROR: No se ha podido liberar el asiento con id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, asientos[i], COLOR_RESET);
+			} else {
+				printf("%sHilo %d:%s Asiento %d liberado.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
+			}
 		}
 	}
 }
@@ -69,7 +70,7 @@ int main(int argc, char* argv[]) {
 	}
 	
 	for (int i = 0; i < n_threads; i++) {
-		int arg = i*10;
+		int arg = i+1;	
 		if (ret = pthread_create(&threads[i], NULL, hilo_reservas, (void*)arg)) {
 			errno = ret;
 			fprintf(stderr, "Error al crear el hilo %d: %s\n", i, strerror(errno));
