@@ -1,86 +1,104 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include <unistd.h>
+#include <string.h>
+#include <errno.h>
 #include "sala.h"
 #include "retardo.h"
 
-#define ITERACIONES 3
-#define CAPACIDAD 20
-#define MAX_PAUSA 1.5
+#define COLOR_RED "\033[0;31m"
+#define COLOR_YELLOW "\033[0;33m"
+#define COLOR_RESET "\033[0m"
+
+#define ITERACIONES_HILO 3
+#define CAPACIDAD_SALA 20
 
 void* hilo_reservas(void* arg) {
-    int base = (int)(size_t)arg;
-    for (int i = 0; i < ITERACIONES; i++) {
-        pausa_aleatoria(MAX_PAUSA);
-        int asiento = reserva_asiento(base + i);
-        printf("Reserva: id %d -> asiento %d\n", base + i, asiento);
-    }
-    return NULL;
-}
-
-void* hilo_liberaciones(void* arg) {
-    (void)arg;
-    for (int i = 0; i < ITERACIONES; i++) {
-        pausa_aleatoria(MAX_PAUSA);
-        int total = capacidad_sala();
-        int id_asiento = rand() % total;
-        int res = libera_asiento(id_asiento);
-        printf("Liberación: asiento %d -> resultado %d\n", id_asiento, res);
-    }
-    return NULL;
-}
-
-void* hilo_estado(void* arg) {
-    (void)arg;
-    while (1) 
-    {
-        estado_sala();
-        sleep(2);
-    }
-    return NULL;
-}
-
-int main(int argc, char* argv[])
- {
-    	if (argc != 3) 
- 	{
-		fprintf(stderr, "Uso: %s n m\n", argv[0]);
-		exit(EXIT_FAILURE);
- 	}
-
-    int n = atoi(argv[1]);
-    int m = atoi(argv[2]);
-    if (n < 1 || m < 1) {
-        fprintf(stderr, "n y m deben ser mayores que 0\n");
-        exit(EXIT_FAILURE);
-    }
-
-    crea_sala(CAPACIDAD);
-
-    pthread_t hilos_reserva[n], hilos_libera[m], hilo_estado_id;
-
-    for (int i = 0; i < n; i++)
-        pthread_create(&hilos_reserva[i], NULL, hilo_reservas, (void*)(size_t)(i * 10));
-
-    for (int i = 0; i < m; i++)
-    	{
-        	pthread_create(&hilos_libera[i], NULL, hilo_liberaciones, NULL);
+	int asientos[ITERACIONES_HILO];
+	int id_hilo = (int)arg;
+	int base = id_hilo*10;
+	
+	for(int i = 0; i < ITERACIONES_HILO; i++) {
+		printf("%sHilo %d:%s Reservando asiento para id %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, i+base);
+		asientos[i] = reserva_asiento(i+base);
+		if (asientos[i] != -1) {
+			printf("%sHilo %d:%s Asiento %d reservado para id %d.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i], i+base);
+		} else {
+			printf("%sHilo %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, i+base, COLOR_RESET);
+		}
 	}
 	
-    pthread_create(&hilo_estado_id, NULL, hilo_estado, NULL);
+	for(int i = 0; i < ITERACIONES_HILO; i++) {
+		if (asientos[i] != -1) {
+			printf("%sHilo %d:%s Liberando asiento %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
+			if (libera_asiento(asientos[i]) == -1) {
+				printf("%sHilo %d:%s ERROR: No se ha podido liberar el asiento con id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, asientos[i], COLOR_RESET);
+			} else {
+				printf("%sHilo %d:%s Asiento %d liberado.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
+			}
+		}
+	}
+}
 
-    for (int i = 0; i < n; i++) {
-    	pthread_join(hilos_reserva[i], NULL);
-    	}
-    	
-    for (int i = 0; i < m; i++) 
-	{
-	    pthread_join(hilos_libera[i], NULL);
+void* hilo_estado(void* args) {
+	while(1) {
+		estado_sala();
+		pausa_aleatoria(MAX_PAUSA);
+	}
+}
+
+
+int ret;
+int main(int argc, char* argv[]) {
+	if (argc != 2) {
+		fprintf(stderr, "Uso: ./ numero_de_hilos\n");
+		exit(-1);
 	}
 	
-    pthread_cancel(hilo_estado_id);
-    elimina_sala();
-    return 0;
+	
+	int n_threads = atoi(argv[1]);
+	
+	pthread_t * threads;
+	if ((threads=malloc(n_threads*sizeof(pthread_t))) == NULL) {
+		fprintf(stderr, "Error al asignar memoria a los hilos: %s\n", strerror(errno));
+		exit(-1);
+	}
+	
+	if (crea_sala(CAPACIDAD_SALA) == -1) {
+		fprintf(stderr, "Error al crear la sala.\n");
+		exit(-1);
+	}
+	
+	for (int i = 0; i < n_threads; i++) {
+		int arg = i+1;	
+		if (ret = pthread_create(&threads[i], NULL, hilo_reservas, (void*)arg)) {
+			errno = ret;
+			fprintf(stderr, "Error al crear el hilo %d: %s\n", i, strerror(errno));
+		}
+	}
+	
+	pthread_t state_thread;
+	if (ret = pthread_create(&state_thread, NULL, hilo_estado, NULL)) {
+		errno = ret;
+		fprintf(stderr, "Error al crear el hilo estado: %s\n", strerror(errno));
+		exit(-1);
+	}
+	
+	for (int i = 0; i < n_threads; i++) {
+		if (ret = pthread_join(threads[i], NULL)) {
+			errno = ret;
+			fprintf(stderr, "Error al crear el hilo %d: %s\n", i, strerror(errno));
+			exit(-1);
+		}
+	}
+	
+	pthread_cancel(state_thread);
+	
+	estado_sala();
+	elimina_sala();
+	
+	free(threads);
+	
+	exit(0);
 }
 
