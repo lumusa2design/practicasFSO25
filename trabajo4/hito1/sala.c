@@ -55,6 +55,10 @@ int reserva_asiento(int id_persona)
 		fprintf(stderr, "El id de la persona tiene que ser positivo\n");
 		return -1;
 	}
+	if(id_persona == ASIENTO_LIBRE) {
+		fprintf(stderr, "Id incorrecto. Id introducido: %d\n", id_persona);
+		return -1;
+	}
 	for(int i = 0; i <capacidad_sala(); i++)
 	{
 		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
