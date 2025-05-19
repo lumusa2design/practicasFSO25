@@ -61,14 +61,15 @@ int reserva_asiento(int id_persona)
 	}
 	for(int i = 0; i <capacidad_sala(); i++)
 	{
-		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
-		{
-			pthread_mutex_lock(&mymutex);
+		pthread_mutex_lock(&mymutex);
+		if (miSala->asientos[i] == ASIENTO_LIBRE) {
 			miSala->asientos[i] = id_persona;
-			miSala->libres --;
+			miSala->libres--;
 			pthread_mutex_unlock(&mymutex);
 			return i;
 		}
+		pthread_mutex_unlock(&mymutex);
+
 	}
 	return -1;
 }
