@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "sala.h"
+#include "retardo.h"
 
 # define ASIENTO_LIBRE 0
 
@@ -33,9 +34,11 @@ int libera_asiento(int id_asiento)
 	}
 	if(estado_asiento(id_asiento) > 0) 
 	{
+		pausa_aleatoria(MAX_PAUSA);
 		int estado_old = estado_asiento(id_asiento);
 		miSala->libres ++;
 		miSala->asientos[id_asiento] = ASIENTO_LIBRE;
+		pausa_aleatoria(MAX_PAUSA);
 		return estado_old;
 	} else 
 	{
@@ -63,8 +66,10 @@ int reserva_asiento(int id_persona)
 	{
 		if(estado_asiento(i) != -1 && estado_asiento(i) == ASIENTO_LIBRE) 
 		{
+			pausa_aleatoria(MAX_PAUSA);
 			miSala->asientos[i] = id_persona;
 			miSala->libres --;
+			pausa_aleatoria(MAX_PAUSA);
 			return i;
 		}
 	}

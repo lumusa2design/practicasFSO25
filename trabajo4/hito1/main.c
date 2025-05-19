@@ -4,14 +4,12 @@
 #include <string.h>
 #include <errno.h>
 #include "sala.h"
-#include "retardo.h"
 
 #define COLOR_RED "\033[0;31m"
 #define COLOR_YELLOW "\033[0;33m"
 #define COLOR_RESET "\033[0m"
 
 #define ITERACIONES_HILO 3
-#define MAX_PAUSA 0.1
 #define CAPACIDAD_SALA 20
 
 void* hilo_reservas(void* arg) {
@@ -20,7 +18,6 @@ void* hilo_reservas(void* arg) {
 	int base = id_hilo*10;
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		pausa_aleatoria(MAX_PAUSA);
 		printf("%sHilo %d:%s Reservando asiento para id %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, i+base);
 		asientos[i] = reserva_asiento(i+base);
 		if (asientos[i] != -1) {
@@ -32,7 +29,6 @@ void* hilo_reservas(void* arg) {
 	}
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		pausa_aleatoria(MAX_PAUSA);
 		if (asientos[i] != -1) {
 			printf("%sHilo %d:%s Liberando asiento %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asientos[i]);
 			if (libera_asiento(asientos[i]) == -1) {
@@ -48,7 +44,6 @@ void* hilo_reservas(void* arg) {
 void* hilo_estado(void* args) {
 	while(1) {
 		estado_sala();
-		pausa_aleatoria(MAX_PAUSA);
 	}
 }
 
