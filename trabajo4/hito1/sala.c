@@ -163,6 +163,7 @@ int existe_sala() {
 }
 
 void estado_sala() {
+    pausa_aleatoria(MAX_PAUSA);
     printf("Sala: %s\n", miSala->nombre);
     printf("Capacidad: %i\n", capacidad_sala());
     printf("Libres: %d | Ocupados: %d\n", asientos_libres(), asientos_ocupados());

@@ -116,7 +116,7 @@ int existe_sala() {
 }
 
 void estado_sala() {
-    pthread_mutex_lock(&mymutex);
+    pausa_aleatoria(MAX_PAUSA);
     printf("Capacidad: %i\n", capacidad_sala());
     printf("Libres: %d | Ocupados: %d\n", asientos_libres(), asientos_ocupados());
     for (int i = 0; i < capacidad_sala(); i++) {
@@ -128,7 +128,6 @@ void estado_sala() {
         }
     }
     printf("\n");
-    pthread_mutex_unlock(&mymutex);
 }
 
 int digitos_asiento() {

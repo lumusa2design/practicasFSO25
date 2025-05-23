@@ -4,7 +4,6 @@
 #include <string.h>
 #include <errno.h>
 #include "sala.h"
-#include "retardo.h"
 
 #define COLOR_RED "\033[0;31m"
 #define COLOR_YELLOW "\033[0;33m"
@@ -15,7 +14,7 @@
 
 void* hilo_reservas(void* arg) {
 	int asientos[ITERACIONES_HILO];
-	int id_hilo = (int)arg;
+	int id_hilo = *(int*)arg;
 	int base = id_hilo*10;
 	
 	for(int i = 0; i < ITERACIONES_HILO; i++) {
@@ -38,12 +37,12 @@ void* hilo_reservas(void* arg) {
 			}
 		}
 	}
+	printf("%sHilo %d finalizado.\n%s", COLOR_YELLOW, id_hilo, COLOR_RESET);
 }
 
 void* hilo_estado(void* args) {
 	while(1) {
 		estado_sala();
-		pausa_aleatoria(MAX_PAUSA);
 	}
 }
 
@@ -69,9 +68,10 @@ int main(int argc, char* argv[]) {
 		exit(-1);
 	}
 	
+	int args[n_threads];
 	for (int i = 0; i < n_threads; i++) {
-		int arg = i+1;	
-		if (ret = pthread_create(&threads[i], NULL, hilo_reservas, (void*)arg)) {
+		args[i] = i+1;	
+		if (ret = pthread_create(&threads[i], NULL, hilo_reservas, &args[i])) {
 			errno = ret;
 			fprintf(stderr, "Error al crear el hilo %d: %s\n", i, strerror(errno));
 		}

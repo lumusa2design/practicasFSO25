@@ -22,25 +22,32 @@ pthread_cond_t cond_liberacion = PTHREAD_COND_INITIALIZER;
 int existe_sala();
 int digitos_asiento();
 
-int libera_asiento(int id_asiento) {
-    pthread_mutex_lock(&mymutex);
-
-    while (asientos_ocupados() <= 0)
-        pthread_cond_wait(&cond_liberacion, &mymutex);
-
-    if (!existe_sala() || id_asiento < 0 || id_asiento >= miSala->capacidad) {
-        pthread_mutex_unlock(&mymutex);
+int libera_asiento() {
+    if (!existe_sala()) {
         return -1;
     }
 
-    if (miSala->asientos[id_asiento] > 0) {
-        int estado_old = miSala->asientos[id_asiento];
-        miSala->asientos[id_asiento] = ASIENTO_LIBRE;
-        miSala->libres++;
-
-        pthread_cond_signal(&cond_reserva);
-        pthread_mutex_unlock(&mymutex);
-        return estado_old;
+    pthread_mutex_lock(&mymutex);
+    
+    while (asientos_ocupados() <= 0) {
+        pthread_cond_wait(&cond_liberacion, &mymutex);
+    }
+    
+    
+    for(int i=0; i<capacidad_sala(); i++) {
+    	if (miSala->asientos[i] != ASIENTO_LIBRE) {
+    		pausa_aleatoria(MAX_PAUSA);
+    		
+	        int estado_old = miSala->asientos[i];
+		miSala->asientos[i] = ASIENTO_LIBRE;
+		miSala->libres++;
+		
+    		pausa_aleatoria(MAX_PAUSA);
+		pthread_cond_signal(&cond_reserva);
+		pthread_mutex_unlock(&mymutex);
+    		
+		return estado_old;    		
+    	}
     }
 
     pthread_mutex_unlock(&mymutex);
@@ -48,24 +55,26 @@ int libera_asiento(int id_asiento) {
 }
 
 int reserva_asiento(int id_persona) {
-    pthread_mutex_lock(&mymutex);
-
-    while (miSala->libres <= 0)
-        pthread_cond_wait(&cond_reserva, &mymutex);
-
     if (!existe_sala() || id_persona < 0) {
-        pthread_mutex_unlock(&mymutex);
         return -1;
+    }
+
+    pthread_mutex_lock(&mymutex);
+    
+    while (miSala->libres <= 0) {
+        pthread_cond_wait(&cond_reserva, &mymutex);
     }
 
     for (int i = 0; i < miSala->capacidad; i++) {
         if (miSala->asientos[i] == ASIENTO_LIBRE) {
-            miSala->asientos[i] = id_persona;
-            miSala->libres--;
+		pausa_aleatoria(MAX_PAUSA);
+		miSala->asientos[i] = id_persona;
+		miSala->libres--;
 
-            pthread_cond_signal(&cond_liberacion);
-            pthread_mutex_unlock(&mymutex);
-            return i;
+		pausa_aleatoria(MAX_PAUSA);
+		pthread_cond_signal(&cond_liberacion);
+		pthread_mutex_unlock(&mymutex);
+		return i;
         }
     }
 
@@ -121,14 +130,14 @@ int existe_sala() {
 }
 
 void estado_sala() {
-    pthread_mutex_lock(&mymutex);
-    printf("Capacidad: %i\n", capacidad_sala());
-    printf("Libres: %i | Ocupados: %i\n", asientos_libres(), asientos_ocupados());
-    for (int i = 0; i < capacidad_sala(); i++) {
-        printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
-    }
-    printf("\n");
-    pthread_mutex_unlock(&mymutex);
+	pausa_aleatoria(MAX_PAUSA);
+
+	printf("Capacidad: %i\n", capacidad_sala());
+	printf("Libres: %i | Ocupados: %i\n", asientos_libres(), asientos_ocupados());
+	for (int i = 0; i < capacidad_sala(); i++) {
+		printf("[%*i] %-8i%s", digitos_asiento(), i, estado_asiento(i), (i+1)%5==0? "\n" : "");
+	}
+	printf("\n");
 }
 
 int digitos_asiento() {

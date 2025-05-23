@@ -2,7 +2,7 @@
 #define SALA_H_
 
 int reserva_asiento(int id_persona);
-int libera_asiento(int id_asiento);
+int libera_asiento();
 int estado_asiento(int id_asiento);
 int asientos_libres();
 int asientos_ocupados();
