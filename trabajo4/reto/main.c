@@ -106,8 +106,6 @@ void* hilo_liberaciones_gratis(void*arg) {
 void* hilo_estado(void* args) {
 	while(1) {
 		estado_sala();
-		printf("Asientos de pago: %d\n Asientos gratis %d\n", premium_seats, free_seats);
-		printf("n_premium: %d\n", n_premium);
 	}
 }
 
