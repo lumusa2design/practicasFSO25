@@ -217,6 +217,8 @@ int main(int argc, char* argv[]) {
 	elimina_sala();
 	
 	free(threads);
+	pthread_mutex_destroy(&seatMutex);
+	pthread_cond_destroy(&freeCond);
 	
 	exit(0);
 }
