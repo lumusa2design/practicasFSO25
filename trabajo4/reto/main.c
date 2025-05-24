@@ -14,13 +14,14 @@
 #define CAPACIDAD_SALA 20
 
 
-int* asientos_pago;
-int* asientos_gratis;
-
 struct thread_arg {
 		int id;
 		int isPremium;
 };
+
+
+// TODO: Lógica premium vs gratis
+// TODO: Implememntar libera asiento(int id_asiento) como estaba antes
 
 void* hilo_reservas(void* arg) {
 	
@@ -32,16 +33,17 @@ void* hilo_reservas(void* arg) {
 	
 	char* color = pago?COLOR_GREEN:COLOR_YELLOW;
 	
-	for(int i = 0; i < ITERACIONES_HILO; i++) {
-		printf("%sHilo reservas %d:%s Reservando asiento para id %d...\n", color, id_hilo, COLOR_RESET, i+base);
-		int resultado = reserva_asiento(i+base);
-		if (resultado != -1) {
-			printf("%sHilo reservas %d:%s Asiento %d reservado para id %d.\n", color, id_hilo, COLOR_RESET, resultado, i+base);
-		} else {
-			printf("%sHilo reservas %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", color, id_hilo, COLOR_RED, i+base, COLOR_RESET);
-		}
-	}
 	
+	printf("%sHilo reservas %d:%s Reservando asiento para id %d...\n", color, id_hilo, COLOR_RESET, i+base);
+	int resultado = reserva_asiento(i+base);
+	if (resultado != -1) {
+		printf("%sHilo reservas %d:%s Asiento %d reservado para id %d.\n", color, id_hilo, COLOR_RESET, resultado, i+base);
+	} else {
+		printf("%sHilo reservas %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", color, id_hilo, COLOR_RED, i+base, COLOR_RESET);
+	}
+	} else {
+	
+	}
 	printf("%sHilo reservas %d finalizado.\n%s", color, id_hilo, COLOR_RESET);
 }
 
@@ -54,16 +56,13 @@ void* hilo_liberaciones(void*arg) {
 	
 	char* color = pago?COLOR_GREEN:COLOR_YELLOW;
 	
-	for (int i=0; i < ITERACIONES_HILO; i++) {
-		printf("%sHilo liberaciones %d:%s Liberando asiento...\n", color, id_hilo, COLOR_RESET);
-		int asiento = libera_asiento();
-		if (asiento == -1) {
-			printf("%sHilo liberaciones %d:%s ERROR: No se ha podido liberar un asiento.\n%s", color, id_hilo, COLOR_RED, COLOR_RESET);
-		} else {
-			printf("%sHilo liberaciones %d:%s Asiento %d liberado.\n", color, id_hilo, COLOR_RESET, asiento);
-		}
-	}
-	
+	printf("%sHilo liberaciones %d:%s Liberando asiento...\n", color, id_hilo, COLOR_RESET);
+	int asiento = libera_asiento();
+	if (asiento == -1) {
+		printf("%sHilo liberaciones %d:%s ERROR: No se ha podido liberar un asiento.\n%s", color, id_hilo, COLOR_RED, COLOR_RESET);
+	} else {
+		printf("%sHilo liberaciones %d:%s Asiento %d liberado.\n", color, id_hilo, COLOR_RESET, asiento);
+	}	
 	printf("%sHilo liberaciones %d finalizado.\n%s", color, id_hilo, COLOR_RESET);
 }
 
