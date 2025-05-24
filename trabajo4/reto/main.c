@@ -14,61 +14,100 @@
 #define CAPACIDAD_SALA 20
 
 
-struct thread_arg {
-		int id;
-		int isPremium;
-};
+pthread_mutex_t seatMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t freeCond = PTHREAD_COND_INITIALIZER;
+int free_seats = 0;
+int premium_seats = 0;
+
+int n_premium;
+int n_free;
 
 
-// TODO: Lógica premium vs gratis
-// TODO: Implememntar libera asiento(int id_asiento) como estaba antes
-
-void* hilo_reservas(void* arg) {
-	
-	struct thread_arg* args= (struct thread_arg*) arg;
-	
-	int id_hilo = args->id;
+void* hilo_reservas_pago(void* arg) {
+	int id_hilo = *(int*)arg;
 	int base = id_hilo*10;
-	int pago = args->isPremium;
 	
-	char* color = pago?COLOR_GREEN:COLOR_YELLOW;
-	
-	
-	printf("%sHilo reservas %d:%s Reservando asiento para id %d...\n", color, id_hilo, COLOR_RESET, i+base);
-	int resultado = reserva_asiento(i+base);
+	printf("%sHilo %d:%s Reservando asiento para id %d...\n", COLOR_GREEN, id_hilo, COLOR_RESET, base);
+	int resultado = reserva_asiento(base);
 	if (resultado != -1) {
-		printf("%sHilo reservas %d:%s Asiento %d reservado para id %d.\n", color, id_hilo, COLOR_RESET, resultado, i+base);
+		printf("%sHilo %d:%s Asiento %d reservado para id %d.\n", COLOR_GREEN, id_hilo, COLOR_RESET, resultado, base);
 	} else {
-		printf("%sHilo reservas %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", color, id_hilo, COLOR_RED, i+base, COLOR_RESET);
+		printf("%sHilo %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", COLOR_GREEN, id_hilo, COLOR_RED, base, COLOR_RESET);
 	}
-	} else {
-	
-	}
-	printf("%sHilo reservas %d finalizado.\n%s", color, id_hilo, COLOR_RESET);
+	pthread_mutex_lock(&seatMutex);
+	premium_seats++;
+	pthread_cond_signal(&freeCond);
+	pthread_mutex_unlock(&seatMutex);
+	printf("%sHilo %d finalizado.\n%s", COLOR_GREEN, id_hilo, COLOR_RESET);
 }
 
-void* hilo_liberaciones(void*arg) {
-	struct thread_arg* args= (struct thread_arg*) arg;
-	
-	int id_hilo = args->id;
+void* hilo_liberaciones_pago(void*arg) {
+	int id_hilo = *(int*)arg;
 	int base = id_hilo*10;
-	int pago = args->isPremium;
 	
-	char* color = pago?COLOR_GREEN:COLOR_YELLOW;
-	
-	printf("%sHilo liberaciones %d:%s Liberando asiento...\n", color, id_hilo, COLOR_RESET);
+	printf("%sHilo %d:%s Liberando asiento...\n", COLOR_GREEN, id_hilo, COLOR_RESET);
 	int asiento = libera_asiento();
 	if (asiento == -1) {
-		printf("%sHilo liberaciones %d:%s ERROR: No se ha podido liberar un asiento.\n%s", color, id_hilo, COLOR_RED, COLOR_RESET);
+		printf("%sHilo %d:%s ERROR: No se ha podido liberar un asiento.\n%s", COLOR_GREEN, id_hilo, COLOR_RED, COLOR_RESET);
 	} else {
-		printf("%sHilo liberaciones %d:%s Asiento %d liberado.\n", color, id_hilo, COLOR_RESET, asiento);
-	}	
-	printf("%sHilo liberaciones %d finalizado.\n%s", color, id_hilo, COLOR_RESET);
+		printf("%sHilo %d:%s Asiento %d liberado.\n", COLOR_GREEN, id_hilo, COLOR_RESET, asiento);
+	}
+	pthread_mutex_lock(&seatMutex);
+	premium_seats--;
+	pthread_cond_signal(&freeCond);
+	pthread_mutex_unlock(&seatMutex);
+	printf("%sHilo %d finalizado.\n%s", COLOR_GREEN, id_hilo, COLOR_RESET);
 }
+
+
+void* hilo_reservas_gratis(void* arg) {
+	int id_hilo = *(int*)arg;
+	int base = id_hilo*10;
+	
+	pthread_mutex_lock(&seatMutex);
+	while(premium_seats == 0) {
+		pthread_cond_wait(&freeCond, &seatMutex);
+	}
+	while(n_premium && (float)free_seats/premium_seats*100 > 10) {
+		pthread_cond_wait(&freeCond, &seatMutex);
+	}
+	
+	printf("%sHilo %d:%s Reservando asiento para id %d...\n", COLOR_YELLOW, id_hilo, COLOR_RESET, base);
+	int resultado = reserva_asiento(base);
+	if (resultado != -1) {
+		printf("%sHilo %d:%s Asiento %d reservado para id %d.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, resultado, base);
+	} else {
+		printf("%sHilo %d:%s ERROR: No se ha podido reservar el asiento para la id %d.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, base, COLOR_RESET);
+	}
+	free_seats++;
+	pthread_mutex_unlock(&seatMutex);
+	printf("%sHilo %d finalizado.\n%s", COLOR_YELLOW, id_hilo, COLOR_RESET);
+}
+
+void* hilo_liberaciones_gratis(void*arg) {
+	int id_hilo = *(int*)arg;
+	int base = id_hilo*10;
+	
+	printf("%sHilo %d:%s Liberando asiento...\n", COLOR_YELLOW, id_hilo, COLOR_RESET);
+	int asiento = libera_asiento();
+	if (asiento == -1) {
+		printf("%sHilo %d:%s ERROR: No se ha podido liberar un asiento.\n%s", COLOR_YELLOW, id_hilo, COLOR_RED, COLOR_RESET);
+	} else {
+		printf("%sHilo %d:%s Asiento %d liberado.\n", COLOR_YELLOW, id_hilo, COLOR_RESET, asiento);
+	}
+	pthread_mutex_lock(&seatMutex);
+	free_seats--;
+	pthread_cond_signal(&freeCond);
+	pthread_mutex_unlock(&seatMutex);
+	printf("%sHilo %d finalizado.\n%s", COLOR_YELLOW, id_hilo, COLOR_RESET);
+}
+
 
 void* hilo_estado(void* args) {
 	while(1) {
 		estado_sala();
+		printf("Asientos de pago: %d\n Asientos gratis %d\n", premium_seats, free_seats);
+		printf("n_premium: %d\n", n_premium);
 	}
 }
 
@@ -81,48 +120,73 @@ int main(int argc, char* argv[]) {
 	}
 	
 	
-	int n_free = atoi(argv[1]);
+	n_free = atoi(argv[1]);
 	if (n_free < 1) {
 		fprintf(stderr, "Error: El número de hilos debe ser mayor que 0. Número introducido: %d", n_free);
 	}
-	int n_premium = atoi(argv[2]);
+	n_premium = atoi(argv[2]);
 	if (n_free < 1) {
 		fprintf(stderr, "Error: El número de hilos debe ser mayor que 0. Número introducido: %d", n_free);
 	}
 	
 
 	int n_threads = n_free + n_premium;
-	pthread_t * reservation_threads;
-	if ((reservation_threads=malloc(n_threads*sizeof(pthread_t))) == NULL) {
+	pthread_t * threads;
+	if ((threads=malloc(n_threads*sizeof(pthread_t))) == NULL) {
 		fprintf(stderr, "Error al asignar memoria a los hilos de reservas: %s\n", strerror(errno));
 		exit(-1);
 	}
 	
-	pthread_t * liberation_threads;
-	if ((liberation_threads=malloc(n_threads*sizeof(pthread_t))) == NULL) {
-		fprintf(stderr, "Error al asignar memoria a los hilos de liberaciones: %s\n", strerror(errno));
-		exit(-1);
-	}
 	
 	if (crea_sala(CAPACIDAD_SALA) == -1) {
 		fprintf(stderr, "Error al crear la sala.\n");
 		exit(-1);
 	}
 	
-	struct thread_arg args[n_threads];
-	for (int i = 0; i < n_threads; i++) {
+	
+	
+	
+	int args[n_threads];
+	int reservations = 0;
+	int liberations = 0;
+	for (int i = 0; i < n_premium; i++) {
+		args[i] = i+1;
+		int thread_op = rand()%2;
 		
-		args[i].id = i+1;
-		args[i].isPremium = i<n_premium?1:0;
-		
-		if (ret = pthread_create(&reservation_threads[i], NULL, hilo_reservas, &args[i])) {
-			errno = ret;
-			fprintf(stderr, "Error al crear el hilo de reservas %d: %s\n", i, strerror(errno));
+		if (thread_op || liberations >= reservations) {
+			if (ret = pthread_create(&threads[i], NULL, hilo_reservas_pago, &args[i])) {
+				errno = ret;
+				fprintf(stderr, "Error al crear hilo: %s\n", strerror(errno));
+				exit(-1);
+			}
+			reservations++;
+		} else {
+			if (ret = pthread_create(&threads[i], NULL, hilo_liberaciones_pago, &args[i])) {
+				errno = ret;
+				fprintf(stderr, "Error al crear hilo: %s\n", strerror(errno));
+				exit(-1);
+			}
+			liberations++;
 		}
+	}
+	for (int i = n_premium; i<n_threads; i++) {
+		args[i] = i+1;
+		int thread_op = rand()%2;
 		
-		if (ret = pthread_create(&liberation_threads[i], NULL, hilo_liberaciones, &args[i])) {
-			errno = ret;
-			fprintf(stderr, "Error al crear el hilo de liberaciones %d: %s\n", i, strerror(errno));
+		if (thread_op || liberations >= reservations) {
+			if (ret = pthread_create(&threads[i], NULL, hilo_reservas_gratis, &args[i])) {
+				errno = ret;
+				fprintf(stderr, "Error al crear hilo: %s\n", strerror(errno));
+				exit(-1);
+			}
+			reservations++;
+		} else {
+			if (ret = pthread_create(&threads[i], NULL, hilo_liberaciones_gratis, &args[i])) {
+				errno = ret;
+				fprintf(stderr, "Error al crear hilo: %s\n", strerror(errno));
+				exit(-1);
+			}
+			liberations++;
 		}
 	}
 	
@@ -133,17 +197,16 @@ int main(int argc, char* argv[]) {
 		exit(-1);
 	}
 	
+	
 	for (int i = 0; i < n_threads; i++) {
-		if (ret = pthread_join(reservation_threads[i], NULL)) {
+		if (ret = pthread_join(threads[i], NULL)) {
 			errno = ret;
 			fprintf(stderr, "Error al esperar por el hilo de reservas %d: %s\n", i, strerror(errno));
 			exit(-1);
 		}
-		
-		if (ret = pthread_join(liberation_threads[i], NULL)) {
-			errno = ret;
-			fprintf(stderr, "Error al esperar por hilo de liberaciones %d: %s\n", i, strerror(errno));
-			exit(-1);
+		if (n_premium > 0) {
+			n_premium--;
+			pthread_cond_signal(&freeCond);
 		}
 	}
 	
@@ -153,8 +216,7 @@ int main(int argc, char* argv[]) {
 	estado_sala();
 	elimina_sala();
 	
-	free(reservation_threads);
-	free(liberation_threads);
+	free(threads);
 	
 	exit(0);
 }

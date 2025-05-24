@@ -22,7 +22,7 @@ pthread_cond_t cond_liberacion = PTHREAD_COND_INITIALIZER;
 int existe_sala();
 int digitos_asiento();
 
-int libera_asiento() {
+int libera_asiento(int id_asiento) {
     if (!existe_sala()) {
         return -1;
     }
