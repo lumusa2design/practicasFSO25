@@ -113,6 +113,10 @@ int crea_sala(int capacidad) {
 
     for (int i = 0; i < capacidad; i++)
         miSala->asientos[i] = ASIENTO_LIBRE;
+       
+    pthread_mutex_init(&mymutex, NULL);
+    pthread_cond_init(&cond_reserva, NULL);
+    pthread_cond_init(&cond_liberacion, NULL);
 
     return capacidad;
 }
@@ -122,6 +126,9 @@ int elimina_sala() {
     free(miSala);
     miSala = NULL;
     pthread_mutex_unlock(&mymutex);
+    pthread_mutex_destroy(&mymutex);
+    pthread_cond_destroy(&cond_liberacion);
+    pthread_cond_destroy(&cond_reserva);
     return 0;
 }
 

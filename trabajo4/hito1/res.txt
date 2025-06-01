@@ -1,0 +1,1429 @@
+[0;33mHilo 1:[0m Reservando asiento para id 10...
+[0;33mHilo 1:[0m Asiento 0 reservado para id 10.
+Sala: 
+Capacidad: 20
+Asientos libres: 19
+Asientos ocupados: 1
+[ 0] 10      [ 1] 0       [ 2] 0       [ 3] 0       [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 8:[0m Reservando asiento para id 80...
+[0;33mHilo 8:[0m Asiento 1 reservado para id 80.
+Sala: 
+Capacidad: 20
+Asientos libres: 18
+Asientos ocupados: 2
+[ 0] 10      [ 1] 80      [ 2] 0       [ 3] 0       [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 12:[0m Reservando asiento para id 120...
+[0;33mHilo 12:[0m Asiento 2 reservado para id 120.
+Sala: 
+Capacidad: 20
+Asientos libres: 17
+Asientos ocupados: 3
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 0       [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 13:[0m Reservando asiento para id 130...
+[0;33mHilo 13:[0m Asiento 3 reservado para id 130.
+Sala: 
+Capacidad: 20
+Asientos libres: 16
+Asientos ocupados: 4
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 27:[0m Reservando asiento para id 270...
+[0;33mHilo 27:[0m Asiento 4 reservado para id 270.
+Sala: 
+Capacidad: 20
+Asientos libres: 15
+Asientos ocupados: 5
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 26:[0m Reservando asiento para id 260...
+[0;33mHilo 26:[0m Asiento 5 reservado para id 260.
+Sala: 
+Capacidad: 20
+Asientos libres: 14
+Asientos ocupados: 6
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 63:[0m Reservando asiento para id 630...
+[0;33mHilo 63:[0m Asiento 6 reservado para id 630.
+Sala: 
+Capacidad: 20
+Asientos libres: 13
+Asientos ocupados: 7
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 68:[0m Reservando asiento para id 680...
+[0;33mHilo 68:[0m Asiento 7 reservado para id 680.
+Sala: 
+Capacidad: 20
+Asientos libres: 12
+Asientos ocupados: 8
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 61:[0m Reservando asiento para id 610...
+[0;33mHilo 61:[0m Asiento 8 reservado para id 610.
+Sala: 
+Capacidad: 20
+Asientos libres: 11
+Asientos ocupados: 9
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[0;33mHilo 6:[0m Reservando asiento para id 60...
+[0;33mHilo 6:[0m Asiento 9 reservado para id 60.
+Sala: 
+Capacidad: 20
+Asientos libres: 10
+Asientos ocupados: 10
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 41:[0m Reservando asiento para id 410...
+[0;33mHilo 41:[0m Asiento 10 reservado para id 410.
+Sala: 
+Capacidad: 20
+Asientos libres: 9
+Asientos ocupados: 11
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 41:[0m Reservando asiento para id 411...
+[0;33mHilo 41:[0m Asiento 11 reservado para id 411.
+[0;33mHilo 51:[0m Reservando asiento para id 510...
+[0;33mHilo 51:[0m Asiento 12 reservado para id 510.
+Sala: 
+Capacidad: 20
+Asientos libres: 7
+Asientos ocupados: 13
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+Sala: 
+Capacidad: 20
+Asientos libres: 7
+Asientos ocupados: 13
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 49:[0m Reservando asiento para id 490...
+[0;33mHilo 49:[0m Asiento 13 reservado para id 490.
+Sala: 
+Capacidad: 20
+Asientos libres: 6
+Asientos ocupados: 14
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 26:[0m Reservando asiento para id 261...
+[0;33mHilo 26:[0m Asiento 14 reservado para id 261.
+Sala: 
+Capacidad: 20
+Asientos libres: 5
+Asientos ocupados: 15
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 14:[0m Reservando asiento para id 140...
+[0;33mHilo 14:[0m Asiento 15 reservado para id 140.
+Sala: 
+Capacidad: 20
+Asientos libres: 4
+Asientos ocupados: 16
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 79:[0m Reservando asiento para id 790...
+[0;33mHilo 79:[0m Asiento 16 reservado para id 790.
+Sala: 
+Capacidad: 20
+Asientos libres: 3
+Asientos ocupados: 17
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 63:[0m Reservando asiento para id 631...
+[0;33mHilo 63:[0m Asiento 17 reservado para id 631.
+Sala: 
+Capacidad: 20
+Asientos libres: 2
+Asientos ocupados: 18
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 0       [19] 0       
+
+[0;33mHilo 40:[0m Reservando asiento para id 400...
+[0;33mHilo 40:[0m Asiento 18 reservado para id 400.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 0       
+
+[0;33mHilo 7:[0m Reservando asiento para id 70...
+[0;33mHilo 7:[0m Asiento 19 reservado para id 70.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 260     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 26:[0m Reservando asiento para id 262...
+[0;33mHilo 26:[0;31m ERROR: No se ha podido reservar el asiento para la id 262.
+[0m[0;33mHilo 85:[0m Reservando asiento para id 850...
+[0;33mHilo 85:[0;31m ERROR: No se ha podido reservar el asiento para la id 850.
+[0m[0;33mHilo 5:[0m Reservando asiento para id 50...
+[0;33mHilo 5:[0;31m ERROR: No se ha podido reservar el asiento para la id 50.
+[0m[0;33mHilo 29:[0m Reservando asiento para id 290...
+[0;33mHilo 29:[0;31m ERROR: No se ha podido reservar el asiento para la id 290.
+[0m[0;33mHilo 21:[0m Reservando asiento para id 210...
+[0;33mHilo 21:[0;31m ERROR: No se ha podido reservar el asiento para la id 210.
+[0m[0;33mHilo 80:[0m Reservando asiento para id 800...
+[0;33mHilo 80:[0;31m ERROR: No se ha podido reservar el asiento para la id 800.
+[0m[0;33mHilo 97:[0m Reservando asiento para id 970...
+[0;33mHilo 97:[0;31m ERROR: No se ha podido reservar el asiento para la id 970.
+[0m[0;33mHilo 17:[0m Reservando asiento para id 170...
+[0;33mHilo 17:[0;31m ERROR: No se ha podido reservar el asiento para la id 170.
+[0m[0;33mHilo 31:[0m Reservando asiento para id 310...
+[0;33mHilo 31:[0;31m ERROR: No se ha podido reservar el asiento para la id 310.
+[0m[0;33mHilo 50:[0m Reservando asiento para id 500...
+[0;33mHilo 50:[0;31m ERROR: No se ha podido reservar el asiento para la id 500.
+[0m[0;33mHilo 8:[0m Reservando asiento para id 81...
+[0;33mHilo 8:[0;31m ERROR: No se ha podido reservar el asiento para la id 81.
+[0m[0;33mHilo 58:[0m Reservando asiento para id 580...
+[0;33mHilo 58:[0;31m ERROR: No se ha podido reservar el asiento para la id 580.
+[0m[0;33mHilo 47:[0m Reservando asiento para id 470...
+[0;33mHilo 47:[0;31m ERROR: No se ha podido reservar el asiento para la id 470.
+[0m[0;33mHilo 38:[0m Reservando asiento para id 380...
+[0;33mHilo 38:[0;31m ERROR: No se ha podido reservar el asiento para la id 380.
+[0m[0;33mHilo 35:[0m Reservando asiento para id 350...
+[0;33mHilo 35:[0;31m ERROR: No se ha podido reservar el asiento para la id 350.
+[0m[0;33mHilo 80:[0m Reservando asiento para id 801...
+[0;33mHilo 80:[0;31m ERROR: No se ha podido reservar el asiento para la id 801.
+[0m[0;33mHilo 28:[0m Reservando asiento para id 280...
+[0;33mHilo 28:[0;31m ERROR: No se ha podido reservar el asiento para la id 280.
+[0m[0;33mHilo 15:[0m Reservando asiento para id 150...
+[0;33mHilo 15:[0;31m ERROR: No se ha podido reservar el asiento para la id 150.
+[0m[0;33mHilo 32:[0m Reservando asiento para id 320...
+[0;33mHilo 32:[0;31m ERROR: No se ha podido reservar el asiento para la id 320.
+[0m[0;33mHilo 31:[0m Reservando asiento para id 311...
+[0;33mHilo 31:[0;31m ERROR: No se ha podido reservar el asiento para la id 311.
+[0m[0;33mHilo 43:[0m Reservando asiento para id 430...
+[0;33mHilo 43:[0;31m ERROR: No se ha podido reservar el asiento para la id 430.
+[0m[0;33mHilo 31:[0m Reservando asiento para id 312...
+[0;33mHilo 31:[0;31m ERROR: No se ha podido reservar el asiento para la id 312.
+[0m[0;33mHilo 100:[0m Reservando asiento para id 1000...
+[0;33mHilo 100:[0;31m ERROR: No se ha podido reservar el asiento para la id 1000.
+[0m[0;33mHilo 62:[0m Reservando asiento para id 620...
+[0;33mHilo 62:[0;31m ERROR: No se ha podido reservar el asiento para la id 620.
+[0m[0;33mHilo 21:[0m Reservando asiento para id 211...
+[0;33mHilo 21:[0;31m ERROR: No se ha podido reservar el asiento para la id 211.
+[0m[0;33mHilo 64:[0m Reservando asiento para id 640...
+[0;33mHilo 64:[0;31m ERROR: No se ha podido reservar el asiento para la id 640.
+[0m[0;33mHilo 55:[0m Reservando asiento para id 550...
+[0;33mHilo 55:[0;31m ERROR: No se ha podido reservar el asiento para la id 550.
+[0m[0;33mHilo 25:[0m Reservando asiento para id 250...
+[0;33mHilo 25:[0;31m ERROR: No se ha podido reservar el asiento para la id 250.
+[0m[0;33mHilo 15:[0m Reservando asiento para id 151...
+[0;33mHilo 15:[0;31m ERROR: No se ha podido reservar el asiento para la id 151.
+[0m[0;33mHilo 26:[0m Liberando asiento 5...
+[0;33mHilo 26:[0m Asiento 5 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 0       [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 53:[0m Reservando asiento para id 530...
+[0;33mHilo 53:[0m Asiento 5 reservado para id 530.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 410     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 46:[0m Reservando asiento para id 460...
+[0;33mHilo 46:[0;31m ERROR: No se ha podido reservar el asiento para la id 460.
+[0m[0;33mHilo 6:[0m Reservando asiento para id 61...
+[0;33mHilo 6:[0;31m ERROR: No se ha podido reservar el asiento para la id 61.
+[0m[0;33mHilo 57:[0m Reservando asiento para id 570...
+[0;33mHilo 57:[0;31m ERROR: No se ha podido reservar el asiento para la id 570.
+[0m[0;33mHilo 2:[0m Reservando asiento para id 20...
+[0;33mHilo 2:[0;31m ERROR: No se ha podido reservar el asiento para la id 20.
+[0m[0;33mHilo 6:[0m Reservando asiento para id 62...
+[0;33mHilo 6:[0;31m ERROR: No se ha podido reservar el asiento para la id 62.
+[0m[0;33mHilo 9:[0m Reservando asiento para id 90...
+[0;33mHilo 9:[0;31m ERROR: No se ha podido reservar el asiento para la id 90.
+[0m[0;33mHilo 93:[0m Reservando asiento para id 930...
+[0;33mHilo 93:[0;31m ERROR: No se ha podido reservar el asiento para la id 930.
+[0m[0;33mHilo 36:[0m Reservando asiento para id 360...
+[0;33mHilo 36:[0;31m ERROR: No se ha podido reservar el asiento para la id 360.
+[0m[0;33mHilo 67:[0m Reservando asiento para id 670...
+[0;33mHilo 67:[0;31m ERROR: No se ha podido reservar el asiento para la id 670.
+[0m[0;33mHilo 54:[0m Reservando asiento para id 540...
+[0;33mHilo 54:[0;31m ERROR: No se ha podido reservar el asiento para la id 540.
+[0m[0;33mHilo 65:[0m Reservando asiento para id 650...
+[0;33mHilo 65:[0;31m ERROR: No se ha podido reservar el asiento para la id 650.
+[0m[0;33mHilo 10:[0m Reservando asiento para id 100...
+[0;33mHilo 10:[0;31m ERROR: No se ha podido reservar el asiento para la id 100.
+[0m[0;33mHilo 22:[0m Reservando asiento para id 220...
+[0;33mHilo 22:[0;31m ERROR: No se ha podido reservar el asiento para la id 220.
+[0m[0;33mHilo 17:[0m Reservando asiento para id 171...
+[0;33mHilo 17:[0;31m ERROR: No se ha podido reservar el asiento para la id 171.
+[0m[0;33mHilo 95:[0m Reservando asiento para id 950...
+[0;33mHilo 95:[0;31m ERROR: No se ha podido reservar el asiento para la id 950.
+[0m[0;33mHilo 100:[0m Reservando asiento para id 1001...
+[0;33mHilo 100:[0;31m ERROR: No se ha podido reservar el asiento para la id 1001.
+[0m[0;33mHilo 15:[0m Reservando asiento para id 152...
+[0;33mHilo 15:[0;31m ERROR: No se ha podido reservar el asiento para la id 152.
+[0m[0;33mHilo 76:[0m Reservando asiento para id 760...
+[0;33mHilo 76:[0;31m ERROR: No se ha podido reservar el asiento para la id 760.
+[0m[0;33mHilo 86:[0m Reservando asiento para id 860...
+[0;33mHilo 86:[0;31m ERROR: No se ha podido reservar el asiento para la id 860.
+[0m[0;33mHilo 52:[0m Reservando asiento para id 520...
+[0;33mHilo 52:[0;31m ERROR: No se ha podido reservar el asiento para la id 520.
+[0m[0;33mHilo 87:[0m Reservando asiento para id 870...
+[0;33mHilo 87:[0;31m ERROR: No se ha podido reservar el asiento para la id 870.
+[0m[0;33mHilo 45:[0m Reservando asiento para id 450...
+[0;33mHilo 45:[0;31m ERROR: No se ha podido reservar el asiento para la id 450.
+[0m[0;33mHilo 55:[0m Reservando asiento para id 551...
+[0;33mHilo 55:[0;31m ERROR: No se ha podido reservar el asiento para la id 551.
+[0m[0;33mHilo 4:[0m Reservando asiento para id 40...
+[0;33mHilo 4:[0;31m ERROR: No se ha podido reservar el asiento para la id 40.
+[0m[0;33mHilo 70:[0m Reservando asiento para id 700...
+[0;33mHilo 70:[0;31m ERROR: No se ha podido reservar el asiento para la id 700.
+[0m[0;33mHilo 29:[0m Reservando asiento para id 291...
+[0;33mHilo 29:[0;31m ERROR: No se ha podido reservar el asiento para la id 291.
+[0m[0;33mHilo 64:[0m Reservando asiento para id 641...
+[0;33mHilo 64:[0;31m ERROR: No se ha podido reservar el asiento para la id 641.
+[0m[0;33mHilo 39:[0m Reservando asiento para id 390...
+[0;33mHilo 39:[0;31m ERROR: No se ha podido reservar el asiento para la id 390.
+[0m[0;33mHilo 62:[0m Reservando asiento para id 621...
+[0;33mHilo 62:[0;31m ERROR: No se ha podido reservar el asiento para la id 621.
+[0m[0;33mHilo 90:[0m Reservando asiento para id 900...
+[0;33mHilo 90:[0;31m ERROR: No se ha podido reservar el asiento para la id 900.
+[0m[0;33mHilo 38:[0m Reservando asiento para id 381...
+[0;33mHilo 38:[0;31m ERROR: No se ha podido reservar el asiento para la id 381.
+[0m[0;33mHilo 12:[0m Reservando asiento para id 121...
+[0;33mHilo 12:[0;31m ERROR: No se ha podido reservar el asiento para la id 121.
+[0m[0;33mHilo 10:[0m Reservando asiento para id 101...
+[0;33mHilo 10:[0;31m ERROR: No se ha podido reservar el asiento para la id 101.
+[0m[0;33mHilo 42:[0m Reservando asiento para id 420...
+[0;33mHilo 42:[0;31m ERROR: No se ha podido reservar el asiento para la id 420.
+[0m[0;33mHilo 2:[0m Reservando asiento para id 21...
+[0;33mHilo 2:[0;31m ERROR: No se ha podido reservar el asiento para la id 21.
+[0m[0;33mHilo 81:[0m Reservando asiento para id 810...
+[0;33mHilo 81:[0;31m ERROR: No se ha podido reservar el asiento para la id 810.
+[0m[0;33mHilo 1:[0m Reservando asiento para id 11...
+[0;33mHilo 1:[0;31m ERROR: No se ha podido reservar el asiento para la id 11.
+[0m[0;33mHilo 33:[0m Reservando asiento para id 330...
+[0;33mHilo 33:[0;31m ERROR: No se ha podido reservar el asiento para la id 330.
+[0m[0;33mHilo 8:[0m Reservando asiento para id 82...
+[0;33mHilo 8:[0;31m ERROR: No se ha podido reservar el asiento para la id 82.
+[0m[0;33mHilo 35:[0m Reservando asiento para id 351...
+[0;33mHilo 35:[0;31m ERROR: No se ha podido reservar el asiento para la id 351.
+[0m[0;33mHilo 100:[0m Reservando asiento para id 1002...
+[0;33mHilo 100:[0;31m ERROR: No se ha podido reservar el asiento para la id 1002.
+[0m[0;33mHilo 45:[0m Reservando asiento para id 451...
+[0;33mHilo 45:[0;31m ERROR: No se ha podido reservar el asiento para la id 451.
+[0m[0;33mHilo 13:[0m Reservando asiento para id 131...
+[0;33mHilo 13:[0;31m ERROR: No se ha podido reservar el asiento para la id 131.
+[0m[0;33mHilo 83:[0m Reservando asiento para id 830...
+[0;33mHilo 83:[0;31m ERROR: No se ha podido reservar el asiento para la id 830.
+[0m[0;33mHilo 75:[0m Reservando asiento para id 750...
+[0;33mHilo 75:[0;31m ERROR: No se ha podido reservar el asiento para la id 750.
+[0m[0;33mHilo 60:[0m Reservando asiento para id 600...
+[0;33mHilo 89:[0m Reservando asiento para id 890...
+[0;33mHilo 60:[0;31m ERROR: No se ha podido reservar el asiento para la id 600.
+[0m[0;33mHilo 89:[0;31m ERROR: No se ha podido reservar el asiento para la id 890.
+[0m[0;33mHilo 7:[0m Reservando asiento para id 71...
+[0;33mHilo 7:[0;31m ERROR: No se ha podido reservar el asiento para la id 71.
+[0m[0;33mHilo 24:[0m Reservando asiento para id 240...
+[0;33mHilo 24:[0;31m ERROR: No se ha podido reservar el asiento para la id 240.
+[0m[0;33mHilo 92:[0m Reservando asiento para id 920...
+[0;33mHilo 92:[0;31m ERROR: No se ha podido reservar el asiento para la id 920.
+[0m[0;33mHilo 11:[0m Reservando asiento para id 110...
+[0;33mHilo 11:[0;31m ERROR: No se ha podido reservar el asiento para la id 110.
+[0m[0;33mHilo 73:[0m Reservando asiento para id 730...
+[0;33mHilo 73:[0;31m ERROR: No se ha podido reservar el asiento para la id 730.
+[0m[0;33mHilo 45:[0m Reservando asiento para id 452...
+[0;33mHilo 45:[0;31m ERROR: No se ha podido reservar el asiento para la id 452.
+[0m[0;33mHilo 86:[0m Reservando asiento para id 861...
+[0;33mHilo 86:[0;31m ERROR: No se ha podido reservar el asiento para la id 861.
+[0m[0;33mHilo 92:[0m Reservando asiento para id 921...
+[0;33mHilo 92:[0;31m ERROR: No se ha podido reservar el asiento para la id 921.
+[0m[0;33mHilo 37:[0m Reservando asiento para id 370...
+[0;33mHilo 37:[0;31m ERROR: No se ha podido reservar el asiento para la id 370.
+[0m[0;33mHilo 75:[0m Reservando asiento para id 751...
+[0;33mHilo 75:[0;31m ERROR: No se ha podido reservar el asiento para la id 751.
+[0m[0;33mHilo 16:[0m Reservando asiento para id 160...
+[0;33mHilo 16:[0;31m ERROR: No se ha podido reservar el asiento para la id 160.
+[0m[0;33mHilo 65:[0m Reservando asiento para id 651...
+[0;33mHilo 65:[0;31m ERROR: No se ha podido reservar el asiento para la id 651.
+[0m[0;33mHilo 84:[0m Reservando asiento para id 840...
+[0;33mHilo 84:[0;31m ERROR: No se ha podido reservar el asiento para la id 840.
+[0m[0;33mHilo 94:[0m Reservando asiento para id 940...
+[0;33mHilo 94:[0;31m ERROR: No se ha podido reservar el asiento para la id 940.
+[0m[0;33mHilo 46:[0m Reservando asiento para id 461...
+[0;33mHilo 46:[0;31m ERROR: No se ha podido reservar el asiento para la id 461.
+[0m[0;33mHilo 2:[0m Reservando asiento para id 22...
+[0;33mHilo 2:[0;31m ERROR: No se ha podido reservar el asiento para la id 22.
+[0m[0;33mHilo 41:[0m Reservando asiento para id 412...
+[0;33mHilo 41:[0;31m ERROR: No se ha podido reservar el asiento para la id 412.
+[0m[0;33mHilo 51:[0m Reservando asiento para id 511...
+[0;33mHilo 51:[0;31m ERROR: No se ha podido reservar el asiento para la id 511.
+[0m[0;33mHilo 44:[0m Reservando asiento para id 440...
+[0;33mHilo 44:[0;31m ERROR: No se ha podido reservar el asiento para la id 440.
+[0m[0;33mHilo 54:[0m Reservando asiento para id 541...
+[0;33mHilo 54:[0;31m ERROR: No se ha podido reservar el asiento para la id 541.
+[0m[0;33mHilo 3:[0m Reservando asiento para id 30...
+[0;33mHilo 3:[0;31m ERROR: No se ha podido reservar el asiento para la id 30.
+[0m[0;33mHilo 59:[0m Reservando asiento para id 590...
+[0;33mHilo 59:[0;31m ERROR: No se ha podido reservar el asiento para la id 590.
+[0m[0;33mHilo 91:[0m Reservando asiento para id 910...
+[0;33mHilo 91:[0;31m ERROR: No se ha podido reservar el asiento para la id 910.
+[0m[0;33mHilo 16:[0m Reservando asiento para id 161...
+[0;33mHilo 16:[0;31m ERROR: No se ha podido reservar el asiento para la id 161.
+[0m[0;33mHilo 34:[0m Reservando asiento para id 340...
+[0;33mHilo 34:[0;31m ERROR: No se ha podido reservar el asiento para la id 340.
+[0m[0;33mHilo 41:[0m Liberando asiento 10...
+[0;33mHilo 41:[0m Asiento 10 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 0       [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 72:[0m Reservando asiento para id 720...
+[0;33mHilo 72:[0m Asiento 10 reservado para id 720.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 720     [11] 411     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 41:[0m Liberando asiento 11...
+[0;33mHilo 41:[0m Asiento 11 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 720     [11] 0       [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 40:[0m Reservando asiento para id 401...
+[0;33mHilo 40:[0m Asiento 11 reservado para id 401.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 80      [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 23:[0m Reservando asiento para id 230...
+[0;33mHilo 23:[0;31m ERROR: No se ha podido reservar el asiento para la id 230.
+[0m[0;33mHilo 82:[0m Reservando asiento para id 820...
+[0;33mHilo 82:[0;31m ERROR: No se ha podido reservar el asiento para la id 820.
+[0m[0;33mHilo 44:[0m Reservando asiento para id 441...
+[0;33mHilo 44:[0;31m ERROR: No se ha podido reservar el asiento para la id 441.
+[0m[0;33mHilo 74:[0m Reservando asiento para id 740...
+[0;33mHilo 74:[0;31m ERROR: No se ha podido reservar el asiento para la id 740.
+[0m[0;33mHilo 93:[0m Reservando asiento para id 931...
+[0;33mHilo 93:[0;31m ERROR: No se ha podido reservar el asiento para la id 931.
+[0m[0;33mHilo 5:[0m Reservando asiento para id 51...
+[0;33mHilo 5:[0;31m ERROR: No se ha podido reservar el asiento para la id 51.
+[0m[0;33mHilo 96:[0m Reservando asiento para id 960...
+[0;33mHilo 96:[0;31m ERROR: No se ha podido reservar el asiento para la id 960.
+[0m[0;33mHilo 99:[0m Reservando asiento para id 990...
+[0;33mHilo 99:[0;31m ERROR: No se ha podido reservar el asiento para la id 990.
+[0m[0;33mHilo 27:[0m Reservando asiento para id 271...
+[0;33mHilo 27:[0;31m ERROR: No se ha podido reservar el asiento para la id 271.
+[0m[0;33mHilo 1:[0m Reservando asiento para id 12...
+[0;33mHilo 1:[0;31m ERROR: No se ha podido reservar el asiento para la id 12.
+[0m[0;33mHilo 22:[0m Reservando asiento para id 221...
+[0;33mHilo 22:[0;31m ERROR: No se ha podido reservar el asiento para la id 221.
+[0m[0;33mHilo 20:[0m Reservando asiento para id 200...
+[0;33mHilo 20:[0;31m ERROR: No se ha podido reservar el asiento para la id 200.
+[0m[0;33mHilo 47:[0m Reservando asiento para id 471...
+[0;33mHilo 47:[0;31m ERROR: No se ha podido reservar el asiento para la id 471.
+[0m[0;33mHilo 48:[0m Reservando asiento para id 480...
+[0;33mHilo 48:[0;31m ERROR: No se ha podido reservar el asiento para la id 480.
+[0m[0;33mHilo 78:[0m Reservando asiento para id 780...
+[0;33mHilo 78:[0;31m ERROR: No se ha podido reservar el asiento para la id 780.
+[0m[0;33mHilo 95:[0m Reservando asiento para id 951...
+[0;33mHilo 95:[0;31m ERROR: No se ha podido reservar el asiento para la id 951.
+[0m[0;33mHilo 32:[0m Reservando asiento para id 321...
+[0;33mHilo 32:[0;31m ERROR: No se ha podido reservar el asiento para la id 321.
+[0m[0;33mHilo 56:[0m Reservando asiento para id 560...
+[0;33mHilo 56:[0;31m ERROR: No se ha podido reservar el asiento para la id 560.
+[0m[0;33mHilo 18:[0m Reservando asiento para id 180...
+[0;33mHilo 18:[0;31m ERROR: No se ha podido reservar el asiento para la id 180.
+[0m[0;33mHilo 22:[0m Reservando asiento para id 222...
+[0;33mHilo 22:[0;31m ERROR: No se ha podido reservar el asiento para la id 222.
+[0m[0;33mHilo 66:[0m Reservando asiento para id 660...
+[0;33mHilo 66:[0;31m ERROR: No se ha podido reservar el asiento para la id 660.
+[0m[0;33mHilo 85:[0m Reservando asiento para id 851...
+[0;33mHilo 85:[0;31m ERROR: No se ha podido reservar el asiento para la id 851.
+[0m[0;33mHilo 8:[0m Liberando asiento 1...
+[0;33mHilo 8:[0m Asiento 1 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 0       [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 96:[0m Reservando asiento para id 961...
+[0;33mHilo 96:[0m Asiento 1 reservado para id 961.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 60      
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 71:[0m Reservando asiento para id 710...
+[0;33mHilo 71:[0;31m ERROR: No se ha podido reservar el asiento para la id 710.
+[0m[0;33mHilo 88:[0m Reservando asiento para id 880...
+[0;33mHilo 88:[0;31m ERROR: No se ha podido reservar el asiento para la id 880.
+[0m[0;33mHilo 9:[0m Reservando asiento para id 91...
+[0;33mHilo 9:[0;31m ERROR: No se ha podido reservar el asiento para la id 91.
+[0m[0;33mHilo 40:[0m Reservando asiento para id 402...
+[0;33mHilo 40:[0;31m ERROR: No se ha podido reservar el asiento para la id 402.
+[0m[0;33mHilo 19:[0m Reservando asiento para id 190...
+[0;33mHilo 19:[0;31m ERROR: No se ha podido reservar el asiento para la id 190.
+[0m[0;33mHilo 30:[0m Reservando asiento para id 300...
+[0;33mHilo 30:[0;31m ERROR: No se ha podido reservar el asiento para la id 300.
+[0m[0;33mHilo 76:[0m Reservando asiento para id 761...
+[0;33mHilo 76:[0;31m ERROR: No se ha podido reservar el asiento para la id 761.
+[0m[0;33mHilo 97:[0m Reservando asiento para id 971...
+[0;33mHilo 97:[0;31m ERROR: No se ha podido reservar el asiento para la id 971.
+[0m[0;33mHilo 64:[0m Reservando asiento para id 642...
+[0;33mHilo 64:[0;31m ERROR: No se ha podido reservar el asiento para la id 642.
+[0m[0;33mHilo 77:[0m Reservando asiento para id 770...
+[0;33mHilo 77:[0;31m ERROR: No se ha podido reservar el asiento para la id 770.
+[0m[0;33mHilo 17:[0m Reservando asiento para id 172...
+[0;33mHilo 17:[0;31m ERROR: No se ha podido reservar el asiento para la id 172.
+[0m[0;33mHilo 43:[0m Reservando asiento para id 431...
+[0;33mHilo 43:[0;31m ERROR: No se ha podido reservar el asiento para la id 431.
+[0m[0;33mHilo 68:[0m Reservando asiento para id 681...
+[0;33mHilo 68:[0;31m ERROR: No se ha podido reservar el asiento para la id 681.
+[0m[0;33mHilo 61:[0m Reservando asiento para id 611...
+[0;33mHilo 61:[0;31m ERROR: No se ha podido reservar el asiento para la id 611.
+[0m[0;33mHilo 77:[0m Reservando asiento para id 771...
+[0;33mHilo 77:[0;31m ERROR: No se ha podido reservar el asiento para la id 771.
+[0m[0;33mHilo 19:[0m Reservando asiento para id 191...
+[0;33mHilo 19:[0;31m ERROR: No se ha podido reservar el asiento para la id 191.
+[0m[0;33mHilo 81:[0m Reservando asiento para id 811...
+[0;33mHilo 81:[0;31m ERROR: No se ha podido reservar el asiento para la id 811.
+[0m[0;33mHilo 35:[0m Reservando asiento para id 352...
+[0;33mHilo 35:[0;31m ERROR: No se ha podido reservar el asiento para la id 352.
+[0m[0;33mHilo 86:[0m Reservando asiento para id 862...
+[0;33mHilo 86:[0;31m ERROR: No se ha podido reservar el asiento para la id 862.
+[0m[0;33mHilo 88:[0m Reservando asiento para id 881...
+[0;33mHilo 88:[0;31m ERROR: No se ha podido reservar el asiento para la id 881.
+[0m[0;33mHilo 81:[0m Reservando asiento para id 812...
+[0;33mHilo 81:[0;31m ERROR: No se ha podido reservar el asiento para la id 812.
+[0m[0;33mHilo 49:[0m Reservando asiento para id 491...
+[0;33mHilo 49:[0;31m ERROR: No se ha podido reservar el asiento para la id 491.
+[0m[0;33mHilo 98:[0m Reservando asiento para id 980...
+[0;33mHilo 98:[0;31m ERROR: No se ha podido reservar el asiento para la id 980.
+[0m[0;33mHilo 12:[0m Reservando asiento para id 122...
+[0;33mHilo 12:[0;31m ERROR: No se ha podido reservar el asiento para la id 122.
+[0m[0;33mHilo 28:[0m Reservando asiento para id 281...
+[0;33mHilo 28:[0;31m ERROR: No se ha podido reservar el asiento para la id 281.
+[0m[0;33mHilo 69:[0m Reservando asiento para id 690...
+[0;33mHilo 69:[0;31m ERROR: No se ha podido reservar el asiento para la id 690.
+[0m[0;33mHilo 29:[0m Reservando asiento para id 292...
+[0;33mHilo 29:[0;31m ERROR: No se ha podido reservar el asiento para la id 292.
+[0m[0;33mHilo 93:[0m Reservando asiento para id 932...
+[0;33mHilo 93:[0;31m ERROR: No se ha podido reservar el asiento para la id 932.
+[0m[0;33mHilo 94:[0m Reservando asiento para id 941...
+[0;33mHilo 94:[0;31m ERROR: No se ha podido reservar el asiento para la id 941.
+[0m[0;33mHilo 67:[0m Reservando asiento para id 671...
+[0;33mHilo 67:[0;31m ERROR: No se ha podido reservar el asiento para la id 671.
+[0m[0;33mHilo 74:[0m Reservando asiento para id 741...
+[0;33mHilo 74:[0;31m ERROR: No se ha podido reservar el asiento para la id 741.
+[0m[0;33mHilo 80:[0m Reservando asiento para id 802...
+[0;33mHilo 80:[0;31m ERROR: No se ha podido reservar el asiento para la id 802.
+[0m[0;33mHilo 73:[0m Reservando asiento para id 731...
+[0;33mHilo 73:[0;31m ERROR: No se ha podido reservar el asiento para la id 731.
+[0m[0;33mHilo 87:[0m Reservando asiento para id 871...
+[0;33mHilo 87:[0;31m ERROR: No se ha podido reservar el asiento para la id 871.
+[0m[0;33mHilo 14:[0m Reservando asiento para id 141...
+[0;33mHilo 14:[0;31m ERROR: No se ha podido reservar el asiento para la id 141.
+[0m[0;33mHilo 82:[0m Reservando asiento para id 821...
+[0;33mHilo 82:[0;31m ERROR: No se ha podido reservar el asiento para la id 821.
+[0m[0;33mHilo 6:[0m Liberando asiento 9...
+[0;33mHilo 6:[0m Asiento 9 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 0       
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 63:[0m Reservando asiento para id 632...
+[0;33mHilo 63:[0m Asiento 9 reservado para id 632.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 261     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 79:[0m Reservando asiento para id 791...
+[0;33mHilo 79:[0;31m ERROR: No se ha podido reservar el asiento para la id 791.
+[0m[0;33mHilo 13:[0m Reservando asiento para id 132...
+[0;33mHilo 13:[0;31m ERROR: No se ha podido reservar el asiento para la id 132.
+[0m[0;33mHilo 94:[0m Reservando asiento para id 942...
+[0;33mHilo 94:[0;31m ERROR: No se ha podido reservar el asiento para la id 942.
+[0m[0;33mHilo 69:[0m Reservando asiento para id 691...
+[0;33mHilo 69:[0;31m ERROR: No se ha podido reservar el asiento para la id 691.
+[0m[0;33mHilo 25:[0m Reservando asiento para id 251...
+[0;33mHilo 25:[0;31m ERROR: No se ha podido reservar el asiento para la id 251.
+[0m[0;33mHilo 53:[0m Reservando asiento para id 531...
+[0;33mHilo 53:[0;31m ERROR: No se ha podido reservar el asiento para la id 531.
+[0m[0;33mHilo 33:[0m Reservando asiento para id 331...
+[0;33mHilo 33:[0;31m ERROR: No se ha podido reservar el asiento para la id 331.
+[0m[0;33mHilo 39:[0m Reservando asiento para id 391...
+[0;33mHilo 39:[0;31m ERROR: No se ha podido reservar el asiento para la id 391.
+[0m[0;33mHilo 21:[0m Reservando asiento para id 212...
+[0;33mHilo 21:[0;31m ERROR: No se ha podido reservar el asiento para la id 212.
+[0m[0;33mHilo 95:[0m Reservando asiento para id 952...
+[0;33mHilo 95:[0;31m ERROR: No se ha podido reservar el asiento para la id 952.
+[0m[0;33mHilo 25:[0m Reservando asiento para id 252...
+[0;33mHilo 25:[0;31m ERROR: No se ha podido reservar el asiento para la id 252.
+[0m[0;33mHilo 26:[0m Liberando asiento 14...
+[0;33mHilo 26:[0m Asiento 14 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 0       
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 74:[0m Reservando asiento para id 742...
+[0;33mHilo 74:[0m Asiento 14 reservado para id 742.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 130     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 5:[0m Reservando asiento para id 52...
+[0;33mHilo 5:[0;31m ERROR: No se ha podido reservar el asiento para la id 52.
+[0m[0;33mHilo 62:[0m Reservando asiento para id 622...
+[0;33mHilo 62:[0;31m ERROR: No se ha podido reservar el asiento para la id 622.
+[0m[0;33mHilo 50:[0m Reservando asiento para id 501...
+[0;33mHilo 50:[0;31m ERROR: No se ha podido reservar el asiento para la id 501.
+[0m[0;33mHilo 37:[0m Reservando asiento para id 371...
+[0;33mHilo 37:[0;31m ERROR: No se ha podido reservar el asiento para la id 371.
+[0m[0;33mHilo 98:[0m Reservando asiento para id 981...
+[0;33mHilo 98:[0;31m ERROR: No se ha podido reservar el asiento para la id 981.
+[0m[0;33mHilo 52:[0m Reservando asiento para id 521...
+[0;33mHilo 52:[0;31m ERROR: No se ha podido reservar el asiento para la id 521.
+[0m[0;33mHilo 48:[0m Reservando asiento para id 481...
+[0;33mHilo 48:[0;31m ERROR: No se ha podido reservar el asiento para la id 481.
+[0m[0;33mHilo 28:[0m Reservando asiento para id 282...
+[0;33mHilo 28:[0;31m ERROR: No se ha podido reservar el asiento para la id 282.
+[0m[0;33mHilo 56:[0m Reservando asiento para id 561...
+[0;33mHilo 56:[0;31m ERROR: No se ha podido reservar el asiento para la id 561.
+[0m[0;33mHilo 47:[0m Reservando asiento para id 472...
+[0;33mHilo 47:[0;31m ERROR: No se ha podido reservar el asiento para la id 472.
+[0m[0;33mHilo 46:[0m Reservando asiento para id 462...
+[0;33mHilo 46:[0;31m ERROR: No se ha podido reservar el asiento para la id 462.
+[0m[0;33mHilo 72:[0m Reservando asiento para id 721...
+[0;33mHilo 72:[0;31m ERROR: No se ha podido reservar el asiento para la id 721.
+[0m[0;33mHilo 99:[0m Reservando asiento para id 991...
+[0;33mHilo 99:[0;31m ERROR: No se ha podido reservar el asiento para la id 991.
+[0m[0;33mHilo 76:[0m Reservando asiento para id 762...
+[0;33mHilo 76:[0;31m ERROR: No se ha podido reservar el asiento para la id 762.
+[0m[0;33mHilo 4:[0m Reservando asiento para id 41...
+[0;33mHilo 4:[0;31m ERROR: No se ha podido reservar el asiento para la id 41.
+[0m[0;33mHilo 90:[0m Reservando asiento para id 901...
+[0;33mHilo 90:[0;31m ERROR: No se ha podido reservar el asiento para la id 901.
+[0m[0;33mHilo 10:[0m Reservando asiento para id 102...
+[0;33mHilo 10:[0;31m ERROR: No se ha podido reservar el asiento para la id 102.
+[0m[0;33mHilo 58:[0m Reservando asiento para id 581...
+[0;33mHilo 58:[0;31m ERROR: No se ha podido reservar el asiento para la id 581.
+[0m[0;33mHilo 57:[0m Reservando asiento para id 571...
+[0;33mHilo 57:[0;31m ERROR: No se ha podido reservar el asiento para la id 571.
+[0m[0;33mHilo 49:[0m Reservando asiento para id 492...
+[0;33mHilo 49:[0;31m ERROR: No se ha podido reservar el asiento para la id 492.
+[0m[0;33mHilo 55:[0m Reservando asiento para id 552...
+[0;33mHilo 55:[0;31m ERROR: No se ha podido reservar el asiento para la id 552.
+[0m[0;33mHilo 65:[0m Reservando asiento para id 652...
+[0;33mHilo 65:[0;31m ERROR: No se ha podido reservar el asiento para la id 652.
+[0m[0;33mHilo 42:[0m Reservando asiento para id 421...
+[0;33mHilo 42:[0;31m ERROR: No se ha podido reservar el asiento para la id 421.
+[0m[0;33mHilo 79:[0m Reservando asiento para id 792...
+[0;33mHilo 79:[0;31m ERROR: No se ha podido reservar el asiento para la id 792.
+[0m[0;33mHilo 36:[0m Reservando asiento para id 361...
+[0;33mHilo 36:[0;31m ERROR: No se ha podido reservar el asiento para la id 361.
+[0m[0;33mHilo 92:[0m Reservando asiento para id 922...
+[0;33mHilo 92:[0;31m ERROR: No se ha podido reservar el asiento para la id 922.
+[0m[0;33mHilo 3:[0m Reservando asiento para id 31...
+[0;33mHilo 3:[0;31m ERROR: No se ha podido reservar el asiento para la id 31.
+[0m[0;33mHilo 59:[0m Reservando asiento para id 591...
+[0;33mHilo 59:[0;31m ERROR: No se ha podido reservar el asiento para la id 591.
+[0m[0;33mHilo 96:[0m Reservando asiento para id 962...
+[0;33mHilo 96:[0;31m ERROR: No se ha podido reservar el asiento para la id 962.
+[0m[0;33mHilo 13:[0m Liberando asiento 3...
+[0;33mHilo 13:[0m Asiento 3 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 120     [0;33mHilo 85:[0m Reservando asiento para id 852...
+[ 3] 0       [0;33mHilo 85:[0m Asiento 3 reservado para id 852.
+[ 4] 270     
+Sala: 
+[ 5] 530     Capacidad: 20
+[ 6] 630     Asientos libres: 0
+[ 7] 680     Asientos ocupados: 20
+[ 8] 610     [ 0] 10      [ 1] 961     [ 2] 120     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+[ 9] 632     
+
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 70      
+
+[0;33mHilo 83:[0m Reservando asiento para id 831...
+[0;33mHilo 83:[0;31m ERROR: No se ha podido reservar el asiento para la id 831.
+[0m[0;33mHilo 20:[0m Reservando asiento para id 201...
+[0;33mHilo 20:[0;31m ERROR: No se ha podido reservar el asiento para la id 201.
+[0m[0;33mHilo 88:[0m Reservando asiento para id 882...
+[0;33mHilo 88:[0;31m ERROR: No se ha podido reservar el asiento para la id 882.
+[0m[0;33mHilo 7:[0m Reservando asiento para id 72...
+[0;33mHilo 7:[0;31m ERROR: No se ha podido reservar el asiento para la id 72.
+[0m[0;33mHilo 9:[0m Reservando asiento para id 92...
+[0;33mHilo 9:[0;31m ERROR: No se ha podido reservar el asiento para la id 92.
+[0m[0;33mHilo 43:[0m Reservando asiento para id 432...
+[0;33mHilo 43:[0;31m ERROR: No se ha podido reservar el asiento para la id 432.
+[0m[0;33mHilo 70:[0m Reservando asiento para id 701...
+[0;33mHilo 70:[0;31m ERROR: No se ha podido reservar el asiento para la id 701.
+[0m[0;33mHilo 78:[0m Reservando asiento para id 781...
+[0;33mHilo 78:[0;31m ERROR: No se ha podido reservar el asiento para la id 781.
+[0m[0;33mHilo 73:[0m Reservando asiento para id 732...
+[0;33mHilo 73:[0;31m ERROR: No se ha podido reservar el asiento para la id 732.
+[0m[0;33mHilo 38:[0m Reservando asiento para id 382...
+[0;33mHilo 38:[0;31m ERROR: No se ha podido reservar el asiento para la id 382.
+[0m[0;33mHilo 98:[0m Reservando asiento para id 982...
+[0;33mHilo 98:[0;31m ERROR: No se ha podido reservar el asiento para la id 982.
+[0m[0;33mHilo 24:[0m Reservando asiento para id 241...
+[0;33mHilo 24:[0;31m ERROR: No se ha podido reservar el asiento para la id 241.
+[0m[0;33mHilo 78:[0m Reservando asiento para id 782...
+[0;33mHilo 78:[0;31m ERROR: No se ha podido reservar el asiento para la id 782.
+[0m[0;33mHilo 69:[0m Reservando asiento para id 692...
+[0;33mHilo 69:[0;31m ERROR: No se ha podido reservar el asiento para la id 692.
+[0m[0;33mHilo 44:[0m Reservando asiento para id 442...
+[0;33mHilo 44:[0;31m ERROR: No se ha podido reservar el asiento para la id 442.
+[0m[0;33mHilo 89:[0m Reservando asiento para id 891...
+[0;33mHilo 89:[0;31m ERROR: No se ha podido reservar el asiento para la id 891.
+[0m[0;33mHilo 75:[0m Reservando asiento para id 752...
+[0;33mHilo 75:[0;31m ERROR: No se ha podido reservar el asiento para la id 752.
+[0m[0;33mHilo 59:[0m Reservando asiento para id 592...
+[0;33mHilo 59:[0;31m ERROR: No se ha podido reservar el asiento para la id 592.
+[0m[0;33mHilo 82:[0m Reservando asiento para id 822...
+[0;33mHilo 82:[0;31m ERROR: No se ha podido reservar el asiento para la id 822.
+[0m[0;33mHilo 33:[0m Reservando asiento para id 332...
+[0;33mHilo 33:[0;31m ERROR: No se ha podido reservar el asiento para la id 332.
+[0m[0;33mHilo 60:[0m Reservando asiento para id 601...
+[0;33mHilo 60:[0;31m ERROR: No se ha podido reservar el asiento para la id 601.
+[0m[0;33mHilo 23:[0m Reservando asiento para id 231...
+[0;33mHilo 23:[0;31m ERROR: No se ha podido reservar el asiento para la id 231.
+[0m[0;33mHilo 51:[0m Reservando asiento para id 512...
+[0;33mHilo 51:[0;31m ERROR: No se ha podido reservar el asiento para la id 512.
+[0m[0;33mHilo 3:[0m Reservando asiento para id 32...
+[0;33mHilo 3:[0;31m ERROR: No se ha podido reservar el asiento para la id 32.
+[0m[0;33mHilo 61:[0m Reservando asiento para id 612...
+[0;33mHilo 61:[0;31m ERROR: No se ha podido reservar el asiento para la id 612.
+[0m[0;33mHilo 7:[0m Liberando asiento 19...
+[0;33mHilo 7:[0m Asiento 19 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 0       
+
+[0;33mHilo 70:[0m Reservando asiento para id 702...
+[0;33mHilo 70:[0m Asiento 19 reservado para id 702.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 400     [19] 702     
+
+[0;33mHilo 39:[0m Reservando asiento para id 392...
+[0;33mHilo 39:[0;31m ERROR: No se ha podido reservar el asiento para la id 392.
+[0m[0;33mHilo 11:[0m Reservando asiento para id 111...
+[0;33mHilo 11:[0;31m ERROR: No se ha podido reservar el asiento para la id 111.
+[0m[0;33mHilo 40:[0m Liberando asiento 18...
+[0;33mHilo 40:[0m Asiento 18 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 0       [19] 702     
+
+[0;33mHilo 34:[0m Reservando asiento para id 341...
+[0;33mHilo 34:[0m Asiento 18 reservado para id 341.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 120     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 87:[0m Reservando asiento para id 872...
+[0;33mHilo 87:[0;31m ERROR: No se ha podido reservar el asiento para la id 872.
+[0m[0;33mHilo 89:[0m Reservando asiento para id 892...
+[0;33mHilo 89:[0;31m ERROR: No se ha podido reservar el asiento para la id 892.
+[0m[0;33mHilo 84:[0m Reservando asiento para id 841...
+[0;33mHilo 84:[0;31m ERROR: No se ha podido reservar el asiento para la id 841.
+[0m[0;33mHilo 60:[0m Reservando asiento para id 602...
+[0;33mHilo 60:[0;31m ERROR: No se ha podido reservar el asiento para la id 602.
+[0m[0;33mHilo 12:[0m Liberando asiento 2...
+[0;33mHilo 12:[0m Asiento 2 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 0       [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 20:[0m Reservando asiento para id 202...
+[0;33mHilo 20:[0m Asiento 2 reservado para id 202.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 610     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 61:[0m Liberando asiento 8...
+[0;33mHilo 61:[0m Asiento 8 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 10      [ 1] 961     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 0       [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 42:[0m Reservando asiento para id 422...
+[0;33mHilo 42:[0m Asiento 8 reservado para id 422.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 10      [ 1] 961     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 27:[0m Reservando asiento para id 272...
+[0;33mHilo 27:[0;31m ERROR: No se ha podido reservar el asiento para la id 272.
+[0m[0;33mHilo 19:[0m Reservando asiento para id 192...
+[0;33mHilo 19:[0;31m ERROR: No se ha podido reservar el asiento para la id 192.
+[0m[0;33mHilo 97:[0m Reservando asiento para id 972...
+[0;33mHilo 97:[0;31m ERROR: No se ha podido reservar el asiento para la id 972.
+[0m[0;33mHilo 54:[0m Reservando asiento para id 542...
+[0;33mHilo 54:[0;31m ERROR: No se ha podido reservar el asiento para la id 542.
+[0m[0;33mHilo 16:[0m Reservando asiento para id 162...
+[0;33mHilo 16:[0;31m ERROR: No se ha podido reservar el asiento para la id 162.
+[0m[0;33mHilo 1:[0m Liberando asiento 0...
+[0;33mHilo 1:[0m Asiento 0 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 0       [ 1] 961     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 91:[0m Reservando asiento para id 911...
+[0;33mHilo 91:[0m Asiento 0 reservado para id 911.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 961     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 50:[0m Reservando asiento para id 502...
+[0;33mHilo 50:[0;31m ERROR: No se ha podido reservar el asiento para la id 502.
+[0m[0;33mHilo 18:[0m Reservando asiento para id 181...
+[0;33mHilo 18:[0;31m ERROR: No se ha podido reservar el asiento para la id 181.
+[0m[0;33mHilo 23:[0m Reservando asiento para id 232...
+[0;33mHilo 23:[0;31m ERROR: No se ha podido reservar el asiento para la id 232.
+[0m[0;33mHilo 32:[0m Reservando asiento para id 322...
+[0;33mHilo 32:[0;31m ERROR: No se ha podido reservar el asiento para la id 322.
+[0m[0;33mHilo 96:[0m Liberando asiento 1...
+[0;33mHilo 96:[0m Asiento 1 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 0       [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 401     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 40:[0m Liberando asiento 11...
+[0;33mHilo 40:[0m Asiento 11 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 2
+Asientos ocupados: 18
+[ 0] 911     [ 1] 0       [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 0       [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 99:[0m Reservando asiento para id 992...
+[0;33mHilo 99:[0m Asiento 1 reservado para id 992.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 0       [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 14:[0m Reservando asiento para id 142...
+[0;33mHilo 14:[0m Asiento 11 reservado para id 142.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 510     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 67:[0m Reservando asiento para id 672...
+[0;33mHilo 67:[0;31m ERROR: No se ha podido reservar el asiento para la id 672.
+[0m[0;33mHilo 51:[0m Liberando asiento 12...
+[0;33mHilo 51:[0m Asiento 12 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 0       [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 77:[0m Reservando asiento para id 772...
+[0;33mHilo 77:[0m Asiento 12 reservado para id 772.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 630     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 63:[0m Liberando asiento 6...
+[0;33mHilo 63:[0m Asiento 6 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 0       [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 30:[0m Reservando asiento para id 301...
+[0;33mHilo 30:[0m Asiento 6 reservado para id 301.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 140     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 66:[0m Reservando asiento para id 661...
+[0;33mHilo 66:[0;31m ERROR: No se ha podido reservar el asiento para la id 661.
+[0m[0;33mHilo 91:[0m Reservando asiento para id 912...
+[0;33mHilo 91:[0;31m ERROR: No se ha podido reservar el asiento para la id 912.
+[0m[0;33mHilo 37:[0m Reservando asiento para id 372...
+[0;33mHilo 37:[0;31m ERROR: No se ha podido reservar el asiento para la id 372.
+[0m[0;33mHilo 68:[0m Reservando asiento para id 682...
+[0;33mHilo 68:[0;31m ERROR: No se ha podido reservar el asiento para la id 682.
+[0m[0;33mHilo 71:[0m Reservando asiento para id 711...
+[0;33mHilo 71:[0;31m ERROR: No se ha podido reservar el asiento para la id 711.
+[0m[0;33mHilo 84:[0m Reservando asiento para id 842...
+[0;33mHilo 84:[0;31m ERROR: No se ha podido reservar el asiento para la id 842.
+[0m[0;33mHilo 53:[0m Reservando asiento para id 532...
+[0;33mHilo 53:[0;31m ERROR: No se ha podido reservar el asiento para la id 532.
+[0m[0;33mHilo 48:[0m Reservando asiento para id 482...
+[0;33mHilo 48:[0;31m ERROR: No se ha podido reservar el asiento para la id 482.
+[0m[0;33mHilo 36:[0m Reservando asiento para id 362...
+[0;33mHilo 36:[0;31m ERROR: No se ha podido reservar el asiento para la id 362.
+[0m[0;33mHilo 83:[0m Reservando asiento para id 832...
+[0;33mHilo 83:[0;31m ERROR: No se ha podido reservar el asiento para la id 832.
+[0m[0;33mHilo 90:[0m Reservando asiento para id 902...
+[0;33mHilo 90:[0;31m ERROR: No se ha podido reservar el asiento para la id 902.
+[0m[0;33mHilo 4:[0m Reservando asiento para id 42...
+[0;33mHilo 4:[0;31m ERROR: No se ha podido reservar el asiento para la id 42.
+[0m[0;33mHilo 18:[0m Reservando asiento para id 182...
+[0;33mHilo 18:[0;31m ERROR: No se ha podido reservar el asiento para la id 182.
+[0m[0;33mHilo 14:[0m Liberando asiento 15...
+[0;33mHilo 14:[0m Asiento 15 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 0       [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 57:[0m Reservando asiento para id 572...
+[0;33mHilo 57:[0m Asiento 15 reservado para id 572.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 270     
+[ 5] 530     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 52:[0m Reservando asiento para id 522...
+[0;33mHilo 52:[0;31m ERROR: No se ha podido reservar el asiento para la id 522.
+[0m[0;33mHilo 34:[0m Reservando asiento para id 342...
+[0;33mHilo 34:[0;31m ERROR: No se ha podido reservar el asiento para la id 342.
+[0m[0;33mHilo 71:[0m Reservando asiento para id 712...
+[0;33mHilo 71:[0;31m ERROR: No se ha podido reservar el asiento para la id 712.
+[0m[0;33mHilo 27:[0m Liberando asiento 4...
+[0;33mHilo 27:[0m Asiento 4 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 0       
+[ 5] 530     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 56:[0m Reservando asiento para id 562...
+[0;33mHilo 56:[0m Asiento 4 reservado para id 562.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 530     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 53:[0m Liberando asiento 5...
+[0;33mHilo 53:[0m Asiento 5 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 72:[0m Reservando asiento para id 722...
+[0;33mHilo 72:[0m Asiento 5 reservado para id 722.
+Sala: 
+Capacidad: 20
+Asientos libres: 0
+Asientos ocupados: 20
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 490     [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 11:[0m Reservando asiento para id 112...
+[0;33mHilo 11:[0;31m ERROR: No se ha podido reservar el asiento para la id 112.
+[0m[0;33mHilo 58:[0m Reservando asiento para id 582...
+[0;33mHilo 58:[0;31m ERROR: No se ha podido reservar el asiento para la id 582.
+[0m[0;33mHilo 30:[0m Reservando asiento para id 302...
+[0;33mHilo 30:[0;31m ERROR: No se ha podido reservar el asiento para la id 302.
+[0m[0;33mHilo 49:[0m Liberando asiento 13...
+[0;33mHilo 49:[0m Asiento 13 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 0       [14] 742     
+[15] 572     [16] 790     [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 79:[0m Liberando asiento 16...
+[0;33mHilo 79:[0m Asiento 16 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 2
+Asientos ocupados: 18
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 0       [14] 742     
+[15] 572     [16] 0       [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 24:[0m Reservando asiento para id 242...
+[0;33mHilo 24:[0m Asiento 13 reservado para id 242.
+Sala: 
+Capacidad: 20
+Asientos libres: 1
+Asientos ocupados: 19
+[ 0] 911     [ 1] 992     [ 2] 202     [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 20:[0m Liberando asiento 2...
+[0;33mHilo 20:[0m Asiento 2 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 2
+Asientos ocupados: 18
+[ 0] 911     [ 1] 992     [ 2] 0       [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 631     [18] 341     [19] 702     
+
+[0;33mHilo 63:[0m Liberando asiento 17...
+[0;33mHilo 63:[0m Asiento 17 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 3
+Asientos ocupados: 17
+[ 0] 911     [ 1] 992     [ 2] 0       [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 142     [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 14:[0m Liberando asiento 11...
+[0;33mHilo 14:[0m Asiento 11 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 4
+Asientos ocupados: 16
+[ 0] 911     [ 1] 992     [ 2] 0       [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 680     [ 8] 422     [ 9] 632     
+[10] 720     [11] 0       [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 68:[0m Liberando asiento 7...
+[0;33mHilo 68:[0m Asiento 7 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 5
+Asientos ocupados: 15
+[ 0] 911     [ 1] 992     [ 2] 0       [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 720     [11] 0       [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 72:[0m Liberando asiento 10...
+[0;33mHilo 72:[0m Asiento 10 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 6
+Asientos ocupados: 14
+[ 0] 911     [ 1] 992     [ 2] 0       [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 66:[0m Reservando asiento para id 662...
+[0;33mHilo 66:[0m Asiento 2 reservado para id 662.
+Sala: 
+Capacidad: 20
+Asientos libres: 5
+Asientos ocupados: 15
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 852     [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 85:[0m Liberando asiento 3...
+[0;33mHilo 85:[0m Asiento 3 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 6
+Asientos ocupados: 14
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 742     
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 74:[0m Liberando asiento 14...
+[0;33mHilo 74:[0m Asiento 14 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 7
+Asientos ocupados: 13
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 702     
+
+[0;33mHilo 70:[0m Liberando asiento 19...
+[0;33mHilo 70:[0m Asiento 19 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 8
+Asientos ocupados: 12
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 632     
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 0       
+
+[0;33mHilo 63:[0m Liberando asiento 9...
+[0;33mHilo 63:[0m Asiento 9 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 9
+Asientos ocupados: 11
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 572     [16] 0       [17] 0       [18] 341     [19] 0       
+
+[0;33mHilo 34:[0m Liberando asiento 18...
+[0;33mHilo 34:[0m Asiento 18 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 10
+Asientos ocupados: 10
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 572     [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 57:[0m Liberando asiento 15...
+[0;33mHilo 57:[0m Asiento 15 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 11
+Asientos ocupados: 9
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 722     [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 72:[0m Liberando asiento 5...
+[0;33mHilo 72:[0m Asiento 5 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 12
+Asientos ocupados: 8
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 242     [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 24:[0m Liberando asiento 13...
+[0;33mHilo 24:[0m Asiento 13 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 13
+Asientos ocupados: 7
+[ 0] 911     [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 91:[0m Liberando asiento 0...
+[0;33mHilo 91:[0m Asiento 0 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 14
+Asientos ocupados: 6
+[ 0] 0       [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 0       [ 8] 422     [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 42:[0m Liberando asiento 8...
+[0;33mHilo 42:[0m Asiento 8 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 15
+Asientos ocupados: 5
+[ 0] 0       [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 772     [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 77:[0m Liberando asiento 12...
+[0;33mHilo 77:[0m Asiento 12 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 16
+Asientos ocupados: 4
+[ 0] 0       [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 301     [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 30:[0m Liberando asiento 6...
+[0;33mHilo 30:[0m Asiento 6 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 17
+Asientos ocupados: 3
+[ 0] 0       [ 1] 992     [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 99:[0m Liberando asiento 1...
+[0;33mHilo 99:[0m Asiento 1 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 18
+Asientos ocupados: 2
+[ 0] 0       [ 1] 0       [ 2] 662     [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 66:[0m Liberando asiento 2...
+[0;33mHilo 66:[0m Asiento 2 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 19
+Asientos ocupados: 1
+[ 0] 0       [ 1] 0       [ 2] 0       [ 3] 0       [ 4] 562     
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+[0;33mHilo 56:[0m Liberando asiento 4...
+[0;33mHilo 56:[0m Asiento 4 liberado.
+Sala: 
+Capacidad: 20
+Asientos libres: 20
+Asientos ocupados: 0
+[ 0] 0       [ 1] 0       [ 2] 0       [ 3] 0       [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
+Sala: 
+Capacidad: 20
+Asientos libres: 20
+Asientos ocupados: 0
+[ 0] 0       [ 1] 0       [ 2] 0       [ 3] 0       [ 4] 0       
+[ 5] 0       [ 6] 0       [ 7] 0       [ 8] 0       [ 9] 0       
+[10] 0       [11] 0       [12] 0       [13] 0       [14] 0       
+[15] 0       [16] 0       [17] 0       [18] 0       [19] 0       
+
